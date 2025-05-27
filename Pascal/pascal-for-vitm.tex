@@ -1,0 +1,78 @@
+\documentclass[a4paper,twoside,notitlepage,
+% draft,
+11pt,
+% fleqn
+]{amsart}
+\usepackage[margin=1in]{geometry}
+\makeatletter
+\renewcommand{\section}{\@startsection
+  {section}% name
+  {1}% level
+  {\z@}% indent (0pt)
+  {1.5ex plus 1ex minus .2ex}% space above
+  {1ex plus .2ex}% space below
+  {\normalfont\bfseries}}% font style
+
+\renewcommand{\subsection}{\@startsection
+    {subsection}% name
+    {2}% level
+    {\z@}% indent
+    {1.5ex plus 1ex minus .2ex}% space above
+    {1ex plus .2ex}% space below
+    {\normalfont\itshape}}% font style
+\makeatother
+
+
+\begin{document}
+\title[Pascal's Triangle]{Elementary Combinatorics and Probability through Pascal's Triangle}
+\author{Disha Kuzhively}
+\address{\textit{International Centre for Theoretical Sciences - TIFR, Bangalore}}
+\email{disha.jk@icts.res.in}
+\urladdr{dishajk.github.io}
+\date{\today}
+\maketitle
+\section*{Overview}
+This workshop aims to introduce students to fundamental ideas in combinatorics and probability using Pascal's Triangle as the central object of exploration. Through a series of hands-on, activity-based sessions, students will uncover patterns, explore connections, and engage in creative problem-solving.
+
+\subsection*{Target Audience}
+This workshop is intended for students who have a basic understanding of arithmetic. It is best suited for those in Classes 
+% 6 to 8 
+8 to 10 of the Karnataka State Board or CBSE, or students aged 
+% 11 to 14. 
+13 to 16. Older students may find the material introductory.
+
+\section*{Objectives}
+The objective of this workshop is to help the students explore concepts such as symmetry, sequences, modular arithmetic, sets, subsets, and simple relations through the structure of Pascal's Triangle, and at the end to introduce students to binomial coefficients and their properties. The workshop will also offer intuitive glimpses into visual representations of numbers, while also providing exposure to one or two proof techniques in a playful and engaging setting.
+
+\section*{Structure}
+The workshop will be divided into multiple short sessions, preferably over a weekend. Each session will end with an exploratory take-home problem or prompt to reflect upon. The learning will be supported with guided worksheets and collaborative activities.
+
+\section*{Outcomes}
+By the end of the workshop, students will gain a concrete understanding of how combinatorics and probability naturally emerge from patterns. They will develop skills to articulate the mathematics they observe around them and make generalizations that can be applied to similar problems.
+
+\section*{Session 1 - Building a Pascal's Triangle}
+
+In the first session will be to introduce students to Pascal's Triangle and encourage pattern recognition through hands-on construction, collaborative activities, and visual re-imaginings. Following is a rough outline of the session.
+
+\subsection*{1. Warm-up}
+Begin with a brief guided worksheet where students solve a few problems involving simple counting tasks, exponentiation, such as calculating powers of 2. This primes the students for recognizing patterns that will emerge in Pascal's Triangle.
+\subsection*{2. Building Pascal's Triangle}
+Each student receives a worksheet to build the first several rows of Pascal’s Triangle. Once completed, they are encouraged to observe and discuss patterns such as symmetry, alternating numbers, or diagonals resembling counting sequences (like natural numbers, figurate numbers, powers of 2, etc.).
+\subsection*{3. Discussion and Pattern Exploration}
+After constructing and observing the triangle, introduce Tartaglia's Rectangle. Ask students how do the patterns look now, are they easier or harder to see, which patterns remain, and which change?
+\subsection*{4. Group Activity: Sierpinski Gasket}
+Students use crayons to color even and odd numbers differently in their triangle. Then, working in small groups, they assemble their triangles into a large Sierpinski Gasket on chart paper. Depending on the class size, this becomes a collective artwork for display.
+\subsection*{5. Wrap-Up and Take-Home Exploration}
+Introduce the lattice path problem: ``How many ways can you move from one corner of a grid to the opposite corner, moving only right or down?'' Encourage students to explore how Pascal's Triangle relates to this problem before the next session.
+\subsection*{Materials required}
+\begin{enumerate}
+    \item Crayons or any coloring material,
+    \item masking tape or stapler,
+    \item printout of worksheets
+\end{enumerate}
+\section*{Subsequent Sections}
+The design of Session 2 and later sessions will be informed by the students' responses and engagement in Session 1. These sessions will likely focus on figurate numbers and their appearance within Pascal's Triangle, the use of proof by induction to formally understand and verify the properties and patterns observed, and guiding students through the process of moving from empirical observation to a generalised mathematical statement.
+
+This approach ensures that the workshop builds naturally on students' curiosity, and supports their transition from intuitive pattern recognition to structured mathematical reasoning.
+\hrule
+\end{document}

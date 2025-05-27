@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+    \clip (-10.5,3) rectangle (10.5,{-21*sqrt(2)-3});
+    \foreach \y in {0,...,30}{
+      \foreach \x in {0,...,\y}{
+        \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+      }
+    }    
+  \end{tikzpicture}
+\end{document}
