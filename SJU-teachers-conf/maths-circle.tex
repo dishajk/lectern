@@ -1,0 +1,439 @@
+\documentclass{beamer}
+\mode<presentation>
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,positioning,math,lindenmayersystems}
+\title{Playing with Pascal's Triangle}
+\author[dishajk]{Disha Kuzhively}
+\institute{ICTS-TIFR}
+\date[VITM]{1 June 2025}
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[pausesections]
+    \end{frame}
+\section{Warm-up}
+\begin{frame}
+    \frametitle{Number of chocolates}
+    \begin{block}{Problem}
+        Maya brought home chocolates for her 6 children Asha, Bindu, Chaitra, Divya, Esha, and Farah. She gave them to the youngest, Farah and asked her to distribute them among her siblings. Farah ate half of the chocolates and gave the rest to Esha and asked her to distribute them among her younger siblings. Esha did the same, ate half and gave the rest to Divya and so on. In the end, the oldest child Asha got only one chocolate. How many chocolates did Maya bring home?
+    \end{block}
+
+    \uncover<2->{What if Maya had \alert{7} children instead of 6, what would be the number of chocolates Maya would have brought home then?}
+\end{frame}
+\begin{frame}
+\frametitle{Sum of Numbers}
+\begin{block}{Problem}
+    Find the sum of \(1+2+4+8+\ldots+1024\).
+\end{block}
+\end{frame}
+\begin{frame}
+    \frametitle{Number of Routes}
+    Below is the map of the city showing Maya's house and VITM. Maya visits VITM taking the shortest possible route.
+    \begin{tikzpicture}
+        \foreach \k in {0,1,...,3} {
+          \draw[very thick, double] (0,\k) -- (5,\k);
+          \draw[very thick, double] ({\k+1},-1) -- ({\k+1},4);
+        }
+        \node[star,star points=5,star point height=2mm,fill=yellow!50,draw] (m) at (0.9,-0.1) {};
+        \node[below left=2pt of m] {VITM};
+        \node[regular polygon,regular polygon sides=5,minimum size=2mm,fill=blue!50,draw] (n) at (3.1,3.1) {};
+        \node[above right=2pt of n] {Maya's house};
+      \end{tikzpicture}
+
+    Maya visits VITM taking the shortest possible route.
+  
+    How many such routes are there?
+\end{frame}
+\begin{frame}
+\frametitle{Highest number of routes}
+The houses of 6 students who came to VITM today are marked in pentagons. 
+
+\begin{tikzpicture}
+    \foreach \k in {0,1,...,5} {
+        \pgfmathsetmacro{\h}{int(6 - \k)}
+        \draw (135:\k)--++(45:{5-\k}) node[regular polygon,regular polygon sides=5,minimum size=2mm,fill=blue!50,draw] {\h};
+        \draw (45:\k) --++ (135:{5-\k});
+        }
+    \node[star,star points=5,star point height=2mm,fill=yellow!50,draw] (m) at (0,0) {};
+    \node[below=2pt of m] {VITM};
+  \end{tikzpicture}
+
+Which of these students have the highest number of routes to return home?
+
+Keep in mind these students try to take the shortest possible routes. 
+\end{frame}
+\begin{frame}
+\frametitle{Number of routes}
+Write in every circle the number of ways that lead to it from the entrance.
+
+\begin{tikzpicture}[scale=1]
+    \node[above=4pt] at (0,0) {Entrance};
+    \pgfmathsetmacro{\r}{4}
+    \foreach \y in {0,...,\r}{
+        \draw[double distance=4pt] (-60:\y) --++ (-120:{\r-\y});
+        \draw[double distance=4pt] (-120:\y) --++ (-60:{\r-\y});
+        \foreach \x in {0,...,\y}{
+        \draw[fill=white] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.25);
+      }
+    }    
+  \end{tikzpicture}
+\end{frame}
+\section{Pascal's Triangle}
+\begin{frame}
+    \frametitle{Pascal's Triangle}
+    \begin{tikzpicture}[scale=1]
+        \foreach \y in {0,...,4}{
+          \foreach \x in {0,...,\y}
+          {
+            \pgfmathsetmacro{\nck}{int(\y!/(\x!*(\y-\x)!))}
+            \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5) node {\nck};
+          }
+        }    
+      \end{tikzpicture}    
+\end{frame}
+\subsection{History}
+\begin{frame}
+\frametitle{History}
+\uncover<5->{\emph{Meru prastara}, Halayudha in 10th century based on a commentary on Pingala's Chandahsastra (2nd or 3rd centure BC).}
+
+\vspace{2.5mm}
+\uncover<4->{Persian mathematician Omar Khaayyam(1048-1131) citing book by Al-Karaji (953-1029).}
+
+\vspace{2.5mm}
+\uncover<3->{Chinese mathematician Yang Hui in 1303 based on Jia Xian's description from 11th century.}
+
+\vspace{2.5mm}
+\uncover<2->{Italian algebraist Nicolo Tartaglia in 1556.}
+
+\vspace{2.5mm}
+French mathematician Blair Pascal in 1665.
+\end{frame}
+\begin{frame}
+  Look for \alert{patterns} in your Pascal's Triangle.
+
+  Take a new sheet of paper and list all the patterns you notice.
+\end{frame}
+\begin{frame}
+  \animate<3-5>
+  \frametitle{Patterns in Pascal's Triangle}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      \begin{tikzpicture}[scale=0.85]
+        \pgfmathsetmacro{\last}{7}
+        \foreach \y in {0,...,\last}{
+          \foreach \x in {0,...,\y}
+          {
+            \pgfmathsetmacro{\nck}{int(\y!/(\x!*(\y-\x)!))}
+    
+            \only<1>{
+            \ifnum\x=0
+              \filldraw[fill=green,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+            \else
+              \ifnum\y=\x
+              \filldraw[fill=green,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+              \fi
+            \fi}
+            
+            \only<2>{
+              \ifnum\x=1
+              \filldraw[fill=green,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+              \else
+              \pgfmathsetmacro{\one}{int(\x+1)}
+                \ifnum\y=\one
+                \filldraw[fill=green,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+                \fi
+              \fi
+            }
+            \only<11-13>{
+              \ifnum\x=2
+              \filldraw[fill=green,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+              \else
+              \pgfmathsetmacro{\one}{int(\y-\x)}
+                \ifnum\one=2
+                \filldraw[fill=green,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+                \fi
+              \fi
+            }
+            \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5) node {\nck};
+            \only<3>{
+              \pgfmathsetmacro{\n}{5}
+              \pgfmathsetmacro{\k}{2}
+              \pgfmathsetmacro{\nck}{int(\n!/(\k!*(\n-\k)!))}
+              \draw[fill=white] ({\n/2-\k},{-(\n-1)*sqrt(3)/2}) circle (0.25) node[red] {$+$};
+              \draw[fill=white] ({\n/2-\k},{-\n*sqrt(3)/2}) circle (0.5) node[red] {$=\nck$};
+            }
+            \only<4>{
+              \pgfmathsetmacro{\n}{2}
+              \pgfmathsetmacro{\k}{1}
+              \pgfmathsetmacro{\nck}{int(\n!/(\k!*(\n-\k)!))}
+              \draw[fill=white] ({\n/2-\k},{-(\n-1)*sqrt(3)/2}) circle (0.25) node[red] {$+$};
+              \draw[fill=white] ({\n/2-\k},{-\n*sqrt(3)/2}) circle (0.5) node[red] {$=\nck$};
+            }
+            \only<5>{
+              \pgfmathsetmacro{\n}{3}
+              \pgfmathsetmacro{\k}{1}
+              \pgfmathsetmacro{\nck}{int(\n!/(\k!*(\n-\k)!))}
+              \draw[fill=white] ({\n/2-\k},{-(\n-1)*sqrt(3)/2}) circle (0.25) node[red] {$+$};
+              \draw[fill=white] ({\n/2-\k},{-\n*sqrt(3)/2}) circle (0.5) node[red] {$=\nck$};
+            }
+            \only<8>{
+            \foreach \y in {0,...,\last}{
+              \pgfmathsetmacro{\s}{int(2^\y)}
+              \draw ({\last/2+1},{-\y*sqrt(3)/2}) node {$=\s$};
+            }  
+            }
+            \only<9>{
+              \pgfmathsetmacro{\n}{4}
+              \pgfmathsetmacro{\k}{1}
+              \ifnum\y<\n
+                \ifnum\x=\k
+                \filldraw[fill=green!50,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+                \fi
+              \fi
+              \pgfmathsetmacro{\nck}{int(\n!/((\k+1)!*(\n-1-\k)!))}
+              \filldraw[fill=red!50,opacity=0.5] ({\n/2-\k-1},{-\n*sqrt(3)/2}) circle (0.5) node {\nck};
+            }
+            \only<10>{
+              \pgfmathsetmacro{\n}{6}
+              \pgfmathsetmacro{\k}{2}
+              \ifnum\y<\n
+                \pgfmathsetmacro{\d}{int(\y-\x)}
+                \ifnum\d=2
+                \filldraw[fill=green!50,opacity=0.5] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+                \fi
+              \fi
+              \pgfmathsetmacro{\nck}{int(\n!/((\k+1)!*(\n-1-\k)!))}
+              \filldraw[fill=red!50,opacity=0.5] ({\n/2-\k-1},{-\n*sqrt(3)/2}) circle (0.5) node {\nck};
+            }
+            
+          }
+        }  
+      \end{tikzpicture}  
+    
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \only<1>{This triangle consists of ``1''s on the left and right sides}
+
+      \only<2>{The second diagonal contains consecutive numbers}
+      \only<3-5>{Every number in a row is the sum of the two numbers (to its' left and right) in the row above it.}
+      \only<6-8>{Sum of numbers in a row}
+      \only<9-10>{Sum of numbers in a diagonal}
+      \only<12-13>{
+        \begin{tikzpicture}[scale=0.85]
+          \foreach \n in {0,...,3}{
+            \foreach \y in {0,...,\n}{
+              \foreach \x in {0,...,\y}{
+                \draw[fill=blue!50] ({(\y/2-\x)*0.2},{-(\y*sqrt(3)/2)*0.2-\n+1}) circle (0.1);
+              }
+            }
+          }
+
+        \end{tikzpicture}
+      } 
+
+      \only<13>{Triangular numbers}
+      \only<14-16>{
+        \begin{tikzpicture}[scale=0.85]
+            \foreach \n in {0,...,4}{
+              \foreach \x in {0,...,\n}{
+                \foreach \y in {0,...,\n}{
+                  \draw[fill=red!50] (\x*0.2,{-\y*0.2-\n},0) circle (0.1);
+                }
+              }
+            }
+        \end{tikzpicture}
+      }      
+      \only<16>{
+        \begin{tikzpicture}[scale=0.85]
+            \foreach \n in {0,...,4}{
+              \foreach \x in {0,...,\n}{
+                \foreach \y in {0,...,\n}{
+                  \ifnum\y<\x
+                  \draw[fill=red!50] (\x*0.2,{-\y*0.2-\n},0) circle (0.1);
+                  \else
+                  \draw[fill=green!50] (\x*0.2,{-\y*0.2-\n},0) circle (0.1);
+                  \fi
+                }
+              }
+            }
+        \end{tikzpicture}
+      }
+      \only<15>{Sum of Squares}
+    \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Sierpinski Gasket}
+\begin{frame}
+  Color all the odd numbers in Pascal's triangle.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sierpinski Gasket}
+  \only<1>{
+  \begin{tikzpicture}[scale=0.7]
+    \foreach \y in {0,...,7}{
+      \foreach \x in {0,...,\y}{
+        \pgfmathsetmacro{\nck}{int(\y!/(\x!*(\y-\x)!))}
+        \pgfmathsetmacro{\tocol}{isodd(\nck)}
+        \ifnum\tocol=1
+        \filldraw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
+        \else
+        \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5) node {\nck};
+        \fi
+      }
+    }    
+  \end{tikzpicture}}
+  \only<2>{
+    \def\trianglewidth{2cm}%
+    \pgfdeclarelindenmayersystem{Sierpinski triangle}{
+    \symbol{X}{\pgflsystemdrawforward}
+    \symbol{Y}{\pgflsystemdrawforward}
+    \rule{X -> X-Y+X+Y-X}
+    \rule{Y -> YY}
+}%
+\foreach \level in {0,...,3}{%
+\tikzset{
+    l-system={step=\trianglewidth/(2^\level), order=\level, angle=-120}
+}%
+\begin{tikzpicture}
+    \fill [black] (0,0) -- ++(0:\trianglewidth) -- ++(120:\trianglewidth) -- cycle;
+    \draw [draw=none] (0,0) l-system
+    [l-system={Sierpinski triangle, axiom=X},fill=white];
+\end{tikzpicture}
+}%
+  }
+\end{frame}
+\begin{frame}
+How will the triangle look if you color mod 3?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sierpinski Gasket and Tower of Hanoi}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{tikzpicture}[scale=0.7]
+\only<3-4>{        
+  \foreach \y in {0,...,7}{
+    \foreach \x in {0,...,\y}{
+      \pgfmathsetmacro{\nck}{int(\y!/(\x!*(\y-\x)!))}
+      \pgfmathsetmacro{\tocol}{isodd(\nck)}
+      \ifnum\tocol=1
+        \filldraw[blue!10] ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5) node {\nck};
+      \else
+        \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5) node {\nck};
+      \fi
+    }
+  }
+}        \only<4>{
+          \draw[->] (-7/2,{-7*sqrt(3)/2}) --++ (60:1) --++ (-60:1) --++ (0:1) --++ (0:1) --++ (120:1)--++ (120:1)--++ (180:1)--++ (60:1)--++ (60:1)--++ (0:1)--++ (120:1)--++ (60:1)--++ (60:1)--++ (-60:1)--++ (-60:1)--++ (-120:1)--++ (0:1)--++ (-60:1)--++ (-60:1)--++ (180:1)--++ (-120:1)--++ (-120:1)--++ (0:1)--++ (0:1)--++ (60:1)--++ (-60:1);
+        }    
+        \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \only<1>{The object of the game is to move all the disks over to Tower 3. You cannot place a larger disk onto a smaller disk.}
+      \only<2>{List all the legal configurations.}
+    \end{column}
+  \end{columns}
+\end{frame}
+\section{Dividing a circle into areas}
+\begin{frame}
+\frametitle{Dividing a circle into regions}
+\begin{columns}
+  \begin{column}{0.45\textwidth}
+    \begin{tikzpicture}
+      \draw (0,0) circle (2);
+      \filldraw (120:2) circle (0.1);
+      \only<2->{
+        \filldraw (12:2) circle (0.1);
+        \draw (12:2) -- (120:2);
+      }
+      \only<3->{
+        \filldraw (240:2) circle (0.1);
+        \draw (240:2) -- (120:2);
+        \draw (12:2) -- (240:2);
+      }
+      \only<4->{
+        \filldraw (180:2) circle (0.1);
+        \draw (180:2) -- (120:2);
+        \draw (240:2) -- (180:2);
+        \draw (12:2) -- (180:2);
+      }
+      \only<5->{
+        \filldraw (310:2) circle (0.1);
+        \draw (310:2) -- (120:2);
+        \draw (240:2) -- (310:2);
+        \draw (12:2) -- (310:2);
+        \draw (180:2) -- (310:2);
+      }
+      \only<6->{
+        \filldraw (75:2) circle (0.1);
+        \draw (75:2) -- (120:2);
+        \draw (240:2) -- (75:2);
+        \draw (12:2) -- (75:2);
+        \draw (180:2) -- (75:2);
+        \draw (310:2) -- (75:2);
+      }
+    \end{tikzpicture}
+  \end{column}
+  \begin{column}{0.45\textwidth}
+    \begin{tabular}{lll}
+      \# points & \# lines &\# regions \\\hline
+      1 & 0 & 1 \pause\\
+      2 & 1 & 2 \pause\\
+      3 & 3 & 4 \pause\\
+      4 & 6 & 8 \pause\\
+      5 & 10 & 16 \pause\\
+      6 & 15 & \onslide<6>{?}\onslide<7->{31}
+      \end{tabular}
+
+  \end{column}
+\end{columns}
+\end{frame}
+\begin{frame}
+  \frametitle{Dividing a circle into regions}
+  \begin{columns}
+    \begin{column}{0.3\textwidth}
+      \begin{tikzpicture}[scale=0.7]
+        \draw (0,0) circle (2);
+        \filldraw (120:2) circle (0.1);
+          \filldraw (12:2) circle (0.1);
+          \draw (12:2) -- (120:2);
+          \filldraw (240:2) circle (0.1);
+          \draw (240:2) -- (120:2);
+          \draw (12:2) -- (240:2);
+          \filldraw (180:2) circle (0.1);
+          \draw (180:2) -- (120:2);
+          \draw (240:2) -- (180:2);
+          \draw (12:2) -- (180:2);
+          \filldraw (310:2) circle (0.1);
+          \draw (310:2) -- (120:2);
+          \draw (240:2) -- (310:2);
+          \draw (12:2) -- (310:2);
+          \draw (180:2) -- (310:2);
+          \filldraw (75:2) circle (0.1);
+          \draw (75:2) -- (120:2);
+          \draw (240:2) -- (75:2);
+          \draw (12:2) -- (75:2);
+          \draw (180:2) -- (75:2);
+          \draw (310:2) -- (75:2);
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.65\textwidth}
+      \begin{tabular}{llll}
+        \# points & \# lines &\# regions &\# intersections \\\hline
+        1 & 0 & 1 & 0 \\
+        2 & 1 & 2 & 0 \\
+        3 & 3 & 4 & 0\\
+        4 & 6 & 8 & 1 \\
+        5 & 10 & 16 & 5\\
+        6 & 15 & 31 & 15
+        \end{tabular}
+  
+    \end{column}
+  \end{columns}
+  \end{frame}
+\end{document}
