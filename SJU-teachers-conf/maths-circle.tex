@@ -2,6 +2,8 @@
 \mode<presentation>
 \usepackage{tikz}
 \usepackage{multimedia}
+\setbeamertemplate{caption}{\insertcaption}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 % \usepackage{pdfpcnotes}
 \usetikzlibrary{shapes.geometric,positioning,math,lindenmayersystems}
 \title{Understanding Teacher Needs for Starting and Running a Maths Circle}
@@ -46,13 +48,33 @@
 \subsection{Method}
 \begin{frame}
   \frametitle{How we do it?}
-
+  \begin{center}
   \movie[width=0.8\linewidth,height=0.6\linewidth,poster,autostart]
-  {}{maths-circle.mp4}
+  {\includegraphics[width=0.5\linewidth]{ICTS-RRI-1.jpg}}{maths-circle.mp4}
+  \end{center}
     % \movie[externalviewer]{\includegraphics[width=0.8\linewidth]{poster.png}}{maths-circle.mp4}
   % \hyperlinkmovie[]{}{/home/dishajk/Documents/Animate-Maths/media/videos/mathsCircle/2160p60/mathsCircle.mp4}
+
 \end{frame}
 \subsection{Other examples}
+\begin{frame}
+\frametitle{Other Maths Circles}
+\animate<1-3>
+\begin{figure}
+  \only<1-3>{\caption{RAM Maths Circles}}  
+  \only<1>{\includegraphics[width=0.6\linewidth]{RAM-1.png}\footnote{Image source: \url{raisingamathematician.com}}}
+  \only<2>{\includegraphics[width=0.6\linewidth]{RAM-2.png}\footnote{Image source: \url{raisingamathematician.com}}}
+  \only<3>{\includegraphics[width=0.6\linewidth]{RAM-3.png}\footnote{Image source: \url{raisingamathematician.com}}}
+  \only<4>{\caption{Palakkad Maths Circle - IIT Palakkad}}
+  \only<4>{\includegraphics[width=0.6\linewidth]{palakkad.jpg}\footnote{Image source: \url{mathcircle.iitpkd.ac.in}}}
+  \only<5-6>{\caption{IISER Bhopal}}
+  \only<5>{\includegraphics[width=0.6\linewidth]{bhopal-1.jpeg}\footnote{Image source: Ajit Bhand}}
+  \only<6>{\includegraphics[width=0.6\linewidth]{bhopal-2.jpeg}\footnote{Image source: Ajit Bhand}}
+\end{figure}
+\end{frame}
 \section{Need and Gaps}
+\begin{frame}
+  \frametitle{Needs and Gaps}
+\end{frame}
 \section{AMA}
 \end{document}
