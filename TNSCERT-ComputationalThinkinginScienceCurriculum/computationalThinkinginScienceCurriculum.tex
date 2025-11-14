@@ -11,7 +11,7 @@
 \title{Computational Thinking in Science Curriculum}
 \author[dishajk]{Disha Kuzhively}
 \institute{International Centre for Theoretical Sciences - TIFR, Bangalore}
-\date[Chennai]{Pre-Orientation Workshop on Curriculum Framing and Syllabus Preparation for Science and Mathematics\\\today}
+\date[Chennai]{Pre-Orientation Workshop on Curriculum Framing and Syllabus Preparation for Science and Mathematics\\\today\\{\texttt disha.jk@icts.res.in} }
 \begin{document}
 \begin{frame}
     \titlepage
@@ -20,34 +20,18 @@
     \frametitle{Outline}
     \tableofcontents
 \end{frame}
+\section{Introduction}
 \begin{frame}
 Computational thinking is a set of problem-solving methods that involve expressing problems and their solutions in ways that a computer could also execute.
 \end{frame}
 
 \section{Example: Conditional Statement - If Then Else}
-\begin{frame}
-  \frametitle{If-Then-Else Flow Diagram}
-  \begin{tikzpicture}[ampersand replacement=\&,auto,
-  decision/.style={diamond,draw,thick,text width=4.5em,align=flush center,inner sep=1pt},
-  block/.style={rectangle, draw=blue, thick, text width=5em,align=center, rounded corners,minimum height=4em},
-  line/.style={draw, thick, -latex',shorten >=2pt}]
-  
-  \matrix [column sep=5mm,row sep=7mm]{
-    \& \node (input) {input}; \& \\
-    \& \node [decision] (if) {Condition\\\(if\)}; \& \\
-    \node [block] (then) {then}; \& \& \node [block] (else) {else};\\
-  };
-  \graph {(input)->(if)};
-  \graph[edge label'=yes] {(if)->(then)};
-  \graph[edge label=no] {(if)->(else)};
-  \end{tikzpicture}
 
-\end{frame}
 \begin{frame}
   \frametitle{4 S2 III Transparent,Translucent and Opaque objects}
   \only<1>{
-    \includegraphics[width=0.5\textwidth]{opacity-102.png}
-    \includegraphics[width=0.5\textwidth]{opacity-103.png}
+    \includegraphics[width=0.65\textwidth]{opacity-102.png}
+    \includegraphics[width=0.65\textwidth]{opacity-103.png}
   }
   \only<2>{
 
@@ -87,17 +71,69 @@ Computational thinking is a set of problem-solving methods that involve expressi
 
   \end{tikzpicture}}
 \end{frame}
+
+
+\begin{frame}
+  \frametitle{If-Then-Else Flow Diagram}
+  \begin{tikzpicture}[ampersand replacement=\&,auto,
+  decision/.style={diamond,draw,thick,text width=4.5em,align=flush center,inner sep=1pt},
+  block/.style={rectangle, draw=blue, thick, text width=5em,align=center, rounded corners,minimum height=4em},
+  line/.style={draw, thick, -latex',shorten >=2pt}]
+  
+  \matrix [column sep=5mm,row sep=7mm]{
+    \& \node (input) {input}; \& \\
+    \& \node [decision] (if) {Condition\\\(if\)}; \& \\
+    \node [block] (then) {then}; \& \& \node [block] (else) {else};\\
+  };
+  \graph {(input)->(if)};
+  \graph[edge label'=yes] {(if)->(then)};
+  \graph[edge label=no] {(if)->(else)};
+  \end{tikzpicture}
+
+\end{frame}
+\section{Example: Cooling of Water}
+\begin{frame}
+  
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \only<1-2>{
+\includegraphics[width=\textwidth]{linear-graph.png}
+      }
+      \only<3>{
+\includegraphics[width=0.8\textwidth]{cooling.jpg}
+      }
+    \end{column}
+    \begin{column}{0.55\textwidth}
+      \uncover<2-3>{
+         \includegraphics[width=\textwidth]{temp-time.png}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
 \section{Example: Loop Iteration}
 \begin{frame}
   \frametitle{Kerala SCERT Class 7, 8. Wonders of the Sky}
-  \includegraphics[width=0.6\textwidth]{moon-53.png}
-  
+  how many days it takes for the Moon to reach the New Moon from Full Moon?
+
+  \begin{tikzpicture}
+    \draw (0,0) grid (5,5);
+    \node[anchor=south west] (image) at (0,0) {\includegraphics[width=0.6\textwidth]{moon-53.png}};
+    \only<2-3>{
+      \node[xshift=4em,yshift=2em, text width =10em] at (image.east) {1. Identify full-moon date; 2. Identify next new-moon date; 3. Compute difference; 4. Repeat for next month.};
+    }
+    \only<3>{\node[xshift=4em,text width =8em,blue!50!black] at (image.south east) {Decompposition/ Defining subroutines/ functions};}
+    \only<4>{
+      \node[xshift=4em, text width =10em] at (image.east) {Detecting regularities e.g. loop iteration count or periodicity in data.
+      
+      Algorithm $\to$ Follows a clear sequence: find full-moon date $\to$ find next new-moon date $\to$ subtract $\to$ record $\to$ repeat for next month.};
+    }
+  \end{tikzpicture}
 \end{frame}
 \section{How to Identify Computational Thinking Moments in the Science Textbooks?}
 \begin{frame}
   \frametitle{Computational Thinking Moments in the Science Textbooks}
   \begin{itemize}
-  \item<1-> Students \alert{define a problem}
+  \item<1-> Understanding the problem
   \item<2-> \alert{Decomposition}: break down a complex problem into manageable sub-problems.
   \item<3-> Plan a method, design an experiment/solution, sequence actions: \alert{Algorithm}
   \item<4-> Abstraction and pattern recognition, focusing on relevant features.
@@ -107,5 +143,12 @@ Computational thinking is a set of problem-solving methods that involve expressi
   \item<6-> Data visualisation
   \only<6>{Use of charts/tables/graphs to represent results}
 \end{itemize}
+\end{frame}
+\begin{frame}
+  \begin{tikzpicture}
+  \node (polya1) at (0,0) {\includegraphics[height=0.45\textheight]{polya1.png}};
+  \node (polya2) at (0,-0.5*\textheight){\includegraphics[height=0.45\textheight]{polya2.png}};
+  \draw[->] (polya2.south east) to [out=0,in=0] (polya1.east);
+  \end{tikzpicture}
 \end{frame}
 \end{document}
