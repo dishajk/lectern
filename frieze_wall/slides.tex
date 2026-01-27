@@ -1,0 +1,95 @@
+\documentclass{beamer}
+\mode<presentation>
+\usepackage{tikz}
+\setbeamertemplate{caption}{\insertcaption}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \usepackage{pdfpc-movie}
+\usepackage{graphicx} %The mode "LaTeX => PDF" allows the following formats: .jpg  .png  .pdf  .mps
+% \usepackage{media9}
+\usetikzlibrary{shapes.geometric,positioning,math,lindenmayersystems}
+\title{Sari Borders and Wallpapers}
+\author[dishajk]{Disha Kuzhively}
+\institute{International Centre for Theoretical Sciences - TIFR, Bangalore}
+\date[SGB]{1 February 2026}
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[pausesections]
+    \end{frame}
+\section{Symmetries}
+\begin{frame}
+  \frametitle{Translation}
+\end{frame}
+\section{Sari Borders}
+\begin{frame}
+  \frametitle{Translation}
+  \begin{tikzpicture}
+    \clip (0,-2) rectangle (\textwidth,2);
+    \foreach \i in {0,1,...,7}
+    \node at (1.5*\i,0) {\includegraphics[width=1.5cm]{paisley}};
+  \end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \frametitle{Translation and vertical line reflection}
+  \begin{tikzpicture}
+    \clip (0,-2) rectangle (\textwidth,2);
+    \foreach \i in {0,1,...,4}{
+    \node at (3*\i,0) {\includegraphics[width=1.5cm,angle=180]{paisley_hreflect}};
+    \node at ({3*\i+1.5},0) {\includegraphics[width=1.5cm]{paisley}};}
+  \end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \frametitle{translation, horizontal line reflection, and glide reflection}
+  \begin{tikzpicture}
+    \clip (0,-4) rectangle (\textwidth,2);
+    \foreach \i in {0,1,...,8}{
+    \node at (1.5*\i,-2) {\includegraphics[width=1.5cm]{paisley_hreflect}};
+    \node at (1.5*\i,0) {\includegraphics[width=1.5cm]{paisley}};}
+  \end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \frametitle{translation and glide reflection}
+  \begin{tikzpicture}
+    \clip (0,-4) rectangle (\textwidth,2);
+    \foreach \i in {0,1,...,4}{
+    \node at (3*\i,-2) {\includegraphics[width=1.5cm]{paisley_hreflect}};
+    \node at ({3*\i+1.5},0) {\includegraphics[width=1.5cm]{paisley}};}
+  \end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \frametitle{translation and $180\deg$ Rotations}
+  \begin{tikzpicture}
+    \clip (0,-4) rectangle (\textwidth,2);
+    \foreach \i in {0,1,...,8}{
+    \node at (1.5*\i,-2) {\includegraphics[width=1.5cm,angle=180]{paisley}};
+    \node at (1.5*\i,0) {\includegraphics[width=1.5cm]{paisley}};}
+  \end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \frametitle{translation, $180\deg$ Rotations, vertical line reflection, and glide reflection}
+  \begin{tikzpicture}
+    \clip (0,-4) rectangle (\textwidth,2);
+    \foreach \i in {0,1,...,8}{
+    \node at (6*\i,0) {\includegraphics[width=1.5cm,angle=180]{paisley_hreflect}};
+    \node at ({6*\i+1.5},0) {\includegraphics[width=1.5cm]{paisley}};
+    \node at (6*\i+3,-2) {\includegraphics[width=1.5cm,angle=180]{paisley}};
+    \node at (6*\i+4.5,-2) {\includegraphics[width=1.5cm]{paisley_hreflect}};
+    }
+  \end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \frametitle{translation, $180\deg$ Rotations, horizontal line reflection, vertical line reflection, and glide reflection}
+  \begin{tikzpicture}
+    \clip (0,-4) rectangle (\textwidth,2);
+    \foreach \i in {0,1,...,8}{
+    \node at (3*\i,-2) {\includegraphics[width=1.5cm]{paisley_hreflect}};
+    \node at ({3*\i+1.5},0) {\includegraphics[width=1.5cm,angle=180]{paisley_hreflect}};
+    \node at (3*\i,0) {\includegraphics[width=1.5cm]{paisley}};
+    \node at (3*\i+1.5,-2) {\includegraphics[width=1.5cm,angle=180]{paisley}};
+    }
+  \end{tikzpicture}
+\end{frame}
+\end{document}
