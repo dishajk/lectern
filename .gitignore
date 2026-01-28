@@ -1,3 +1,5 @@
+*.swf
+frieze_wall/svg-inkscape/
 *.aux
 *.log
 *.nav

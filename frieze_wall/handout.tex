@@ -1,7 +1,27 @@
 \documentclass[a4paper]{article}
-\usepackage{svg}
+\usepackage[margin=1cm]{geometry}
+\usepackage{graphicx}
+\usepackage[inkscapearea=page]{svg}
+\usepackage{adjustbox}
 \usepackage{pgffor}
 \begin{document}
-\foreach \i in {p1,p2,pm}{
-    \includesvg{\i}}
+\foreach \i in {p1,p2,pm,pg,pgg,cmm,p4,p4m,p4g}{
+    \begin{figure}
+        \includesvg[pretex=\setkeys{Gin}{trim=200 100 100 100,clip}]{\i}
+
+    % \includesvg[,trim=10 20 30 40,clip=true,width=\textwidth]{\i}
+    \caption{\i}
+    \end{figure}
+    }
+\foreach \i in {p6m,p6,p3,p3m1,p31m}{
+    \begin{figure}
+        \includesvg[pretex=\setkeys{Gin}{trim=100 50 50 50,clip}]{\i}
+    % \includesvg[,trim=10 20 30 40,clip=true,width=\textwidth]{\i}
+    \caption{\i}
+    \end{figure}
+    }
+    
+% \includesvg[width=\textwidth]{}
 \end{document}
+
+cm,pmm,pmg
