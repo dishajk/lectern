@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{graphicx}
+\usepackage{pgffor}
+\begin{document}
+\foreach \i in {
+cmm_tiling_874x625,
+p3_tiling_874x625,
+pgg_tiling_874x625,
+cm_tiling_874x625,
+p4g_tiling_874x625,
+pg_tiling_874x625,
+p1_tiling_874x625,
+p4m_tiling_874x625,
+pmg_tiling_874x625,
+p2_tiling_874x625,
+p4_tiling_874x625,
+pmm_tiling_874x625,
+p31m_tiling_874x625,
+p6m_tiling_874x625,
+pm_tiling_874x625,
+p3m1_tiling_874x625,
+p6_tiling_874x625%
+}{%
+    \centering
+    \includegraphics[width=\textwidth]{\i}\\
+}
+\foreach \i in {
+cmm_tiling_874x625,
+p3_tiling_874x625,
+pgg_tiling_874x625,
+cm_tiling_874x625,
+p4g_tiling_874x625,
+pg_tiling_874x625,
+p1_tiling_874x625,
+p4m_tiling_874x625,
+pmg_tiling_874x625,
+p2_tiling_874x625,
+p4_tiling_874x625,
+pmm_tiling_874x625,
+p31m_tiling_874x625,
+p6m_tiling_874x625,
+pm_tiling_874x625,
+p3m1_tiling_874x625,
+p6_tiling_874x625%
+}{%
+    \centering
+    \includegraphics[width=\textwidth]{\i}\\
+}
+\end{document}
+\usepackage[inkscapearea=page]{svg}
+\usepackage{adjustbox}
+
+% \foreach \i in {p1,p2,pm,pg,pgg,cmm,p4,p4m,p4g}{
+%     \begin{figure}
+%         \includesvg[pretex=\setkeys{Gin}{trim=200 100 100 100,clip}]{\i}
+
+%     % \includesvg[,trim=10 20 30 40,clip=true,width=\textwidth]{\i}
+%     \caption{\i}
+%     \end{figure}
+%     }
+% \foreach \i in {p6m,p6,p3,p3m1,p31m}{
+%     \begin{figure}
+%         \includesvg[pretex=\setkeys{Gin}{trim=100 50 50 50,clip}]{\i}
+%     % \includesvg[,trim=10 20 30 40,clip=true,width=\textwidth]{\i}
+%     \caption{\i}
+%     \end{figure}
+%     }
+    
+% \includesvg[width=\textwidth]{}
+
+cm,pmm,pmg
