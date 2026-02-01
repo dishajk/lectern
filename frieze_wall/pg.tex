@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\coordinate (o) at (0,0);
+\path (o) ++(0:2*\w) coordinate (a);
+\path (o) ++(90:\w) coordinate (b);
+\path (a) ++(90:{\w}) coordinate (c);
+\coordinate (a1) at ($(o)!0.5!(a)$);    
+\coordinate (b1) at ($(o)!0.5!(b)$);    
+\coordinate (d1) at ($(b)!0.5!(c)$);    
+\coordinate (e1) at ($(a)!0.5!(c)$);    
+\filldraw[black!10] (o)--(a)--(c)--(b)--cycle;   
+\filldraw[black!30] (o)--(a1)--(d1)--(b)--cycle;   
+\draw[dashed] (o) -- (a);
+\draw[dashed] (b) -- (c);
+\draw[dashed] (b1) -- (e1);
+\end{tikzpicture}

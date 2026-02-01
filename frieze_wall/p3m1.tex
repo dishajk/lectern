@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+                    \coordinate (o) at (0,0);
+                    \path (o) ++(0:\w) coordinate (a);
+                    \path (o) ++(60:\w) coordinate (b);
+                    \path (o) ++(30:{sqrt(3)*\w}) coordinate (c);
+                    \coordinate (a1) at ($(o)!0.5!(a)$);    
+                    \coordinate (a2) at ($(o)!0.25!(a)$);    
+                    \coordinate (a3) at ($(o)!0.75!(a)$);    
+                    \coordinate (b1) at ($(o)!0.5!(b)$);    
+                    \coordinate (b2) at ($(o)!0.25!(b)$);    
+                    \coordinate (b3) at ($(o)!0.75!(b)$);    
+                    \coordinate (c2) at ($(o)!0.33!(c)$);    
+                    \coordinate (c3) at ($(o)!0.66!(c)$);    
+                    \coordinate (d1) at ($(b)!0.5!(c)$);    
+                    \coordinate (d2) at ($(b)!0.25!(c)$);    
+                    \coordinate (d3) at ($(b)!0.75!(c)$);    
+                    \coordinate (e1) at ($(a)!0.5!(c)$);    
+                    \coordinate (e2) at ($(a)!0.25!(c)$);    
+                    \coordinate (e3) at ($(a)!0.75!(c)$);    
+                    \filldraw[black!10] (o)--(a)--(c)--(b)--cycle;   
+                    \filldraw[black!30] (a)--(c2)--(c3)--cycle;   
+                    \draw[double,double distance=3pt] (o) -- (c);
+                    \draw[double,double distance=3pt] (a)-- (b1);
+                    \draw[double,double distance=3pt] (a)-- (d1);
+                    \draw[double,double distance=3pt] (b)-- (a1);
+                    \draw[double,double distance=3pt] (b)-- (e1);
+                    \draw[dashed] (a1)--(b2);
+                    \draw[dashed] (a1)--(e1);
+                    \draw[dashed] (b1)--(a2);
+                    \draw[dashed] (b1)--(d1);
+                    \draw[dashed] (d1)--(e3);
+                    \draw[dashed] (e1)--(d3);
+                    \draw[dashed] (a3)--(d2);
+                    \draw[dashed] (b3)--(e2);
+                    \foreach \h in {o,a,b,c,c2,c3}{
+                    \node[shape aspect=1,regular polygon, regular polygon sides=3,draw=black,fill=white] at (\h) {};
+                    }
+                    \end{tikzpicture}

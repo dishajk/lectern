@@ -1,10 +1,141 @@
 \documentclass[a4paper]{article}
 \usepackage[margin=1cm]{geometry}
 \usepackage{graphicx}
-\usepackage{pgffor}
+\usepackage{siunitx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{multicol}   
+\usetikzlibrary{shapes.geometric,calc}
+\newcommand{\w}{4}
 \begin{document}
-\begin{tikzpicture}
-\end{tikzpicture}
+\section{Highest degree of rotational symmetry?}
+    \subsection{\ang{60} rotational summetry}
+    \begin{multicols}{2}
+        \subsubsection{Has reflection}
+            \begin{figure}[H]
+            \centering
+            \include{p6m}
+            \caption{p6m}
+            \end{figure}
+        \subsubsection{Has no reflection}
+        \begin{figure}[H]
+            \centering
+            \include{p6}
+            \caption{p6}
+        \end{figure}
+    \end{multicols}
+    \subsection{\ang{90} rotational summetry}
+    \begin{multicols}{2}
+        \subsubsection{Has reflection with mirrors at \ang{45}}
+        \begin{figure}[H]
+            \centering
+            \include{p4m}
+            \caption{p4m}
+        \end{figure}
+        \subsubsection{It Has reflection but no mirrors at \ang{45}}
+            \begin{figure}[H]
+                \centering
+                \include{p4g}
+                \caption{p4g}
+            \end{figure}
+        \end{multicols}
+        \subsubsection{No reflection}
+        \begin{figure}[H]
+                    \centering
+                    \include{p4}
+                    \caption{p4}
+                \end{figure}
+    \subsection{\ang{120} rotational summetry}
+        \subsubsection{Has no reflection}
+        \begin{figure}[H]
+                    \centering
+                    \include{p3}
+                    \caption{p3}
+                \end{figure}
+        \begin{multicols}{2}
+        \subsubsection{Has rotocenter off mirrors}
+                \begin{figure}[H]
+                    \centering
+                    \include{p31m}
+                    \caption{p31m}
+                \end{figure}        
+        \subsubsection{Has rotocenter along mirrors}
+                \begin{figure}[H]
+                    \centering
+                    \include{p3m1}
+                    \caption{p3m1}
+                \end{figure}  
+            \end{multicols} 
+    \subsection{\ang{180} rotational summetry}
+            \begin{multicols}{2}
+        \subsubsection{Has no glide reflection}
+        \begin{figure}[H]
+                    \centering
+                    \include{p2}
+                    \caption{p2}
+                \end{figure}
+        \subsubsection{Has glide reflection}
+        \begin{figure}[H]
+                    \centering
+                    \include{pgg}
+                    \caption{pgg}
+                \end{figure}
+            \end{multicols}
+        \subsubsection{Has no perpendicular reflection}
+            \begin{figure}[H]
+                    \centering
+                    \include{pmg}
+                    \caption{pmg}
+                \end{figure}
+                    \begin{multicols}{2}
+        \subsection{Has perpendicular reflection with rotocenter off mirrors}
+        \begin{figure}[H]
+                    \centering
+                    \include{cmm}
+                    \caption{cmm}
+                    \end{figure} 
+        \subsection{Has perpendicular reflection with rotocenter along mirrors}
+        \begin{figure}[H]
+                    \centering
+                    \include{pmm}
+                    \caption{pmm}
+                    \end{figure}
+                \end{multicols}
+\section{Has no rotational symmetry}
+                    \begin{multicols}{2}
+\subsection{Has no glide reflection}
+\begin{figure}[H]
+            \centering
+            \include{p1}
+            \caption{p1}
+            \end{figure}
+
+            \subsection{Has glide reflection}
+            \begin{figure}[H]
+            \centering
+            \include{pg}
+            \caption{pg}
+            \end{figure}
+        \end{multicols}
+        \newpage
+\begin{multicols}{2}
+
+            \subsection{Has glide axis off mirrors}
+            \begin{figure}[H]
+            \centering
+            \include{cm}
+            \caption{cm}
+            \end{figure}
+            \subsection{Has glide axis along mirrors}
+            \begin{figure}[H]
+            \centering
+            \include{pm}
+            \caption{pm}
+            \end{figure}
+        \end{multicols}
+
+\vfill
+This document was prepared for Maths is Fun: symmetry program on 1 Feb 2026 at SGB by Disha Kuzhively, not for circulation.
 \end{document}
 \usepackage[inkscapearea=page]{svg}
 

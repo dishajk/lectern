@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+\coordinate (o) at (0,0);
+\path (o) ++(0:\w) coordinate (a);
+\path (o) ++(90:\w) coordinate (b);
+\path (o) ++(45:{sqrt(2)*\w}) coordinate (c);
+\coordinate (a1) at ($(o)!0.5!(a)$);
+\coordinate (a2) at ($(o)!0.25!(a)$);    
+\coordinate (a3) at ($(o)!0.75!(a)$);    
+
+\coordinate (b1) at ($(o)!0.5!(b)$);   
+\coordinate (b2) at ($(o)!0.25!(b)$);     
+\coordinate (b3) at ($(o)!0.75!(b)$);     
+\coordinate (c1) at ($(o)!0.5!(c)$);    
+\coordinate (d1) at ($(b)!0.5!(c)$);    
+\coordinate (d2) at ($(b)!0.25!(c)$);    
+\coordinate (d3) at ($(b)!0.75!(c)$);    
+\coordinate (e1) at ($(a)!0.5!(c)$);    
+\coordinate (e2) at ($(a)!0.25!(c)$);    
+\coordinate (e3) at ($(a)!0.75!(c)$); 
+\filldraw[black!10] (o)--(a)--(c)--(b)--cycle;   
+\filldraw[black!30] (a1)--(c1)--(b1)--cycle;   
+
+\draw[double,double distance=3pt] (a1) -- (b1);
+\draw[double,double distance=3pt] (b1) -- (d1);
+\draw[double,double distance=3pt] (d1) -- (e1);
+\draw[double,double distance=3pt] (e1) -- (a1);
+
+\draw[dashed] (o)--(c);
+\draw[dashed] (a)--(b);
+\draw[dashed] (a2)--(d2);
+\draw[dashed] (a3)--(d3);
+\draw[dashed] (b2)--(e2);
+\draw[dashed] (b3)--(e3);
+\foreach \h in {o,a,b,c,c1}{
+\node[shape aspect=1,regular polygon, regular polygon sides=4,draw=black,fill=white] at (\h) {};
+}
+\foreach \h in {a1,b1,d1,e1}{
+\node[shape aspect=1,kite,kite vertex angles=60,draw=black,fill=white] at (\h) {};
+}
+\end{tikzpicture}

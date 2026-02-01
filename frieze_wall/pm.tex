@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+\coordinate (o) at (0,0);
+\path (o) ++(0:2*\w) coordinate (a);
+\path (o) ++(90:\w) coordinate (b);
+\path (a) ++(90:{\w}) coordinate (c);
+\coordinate (b1) at ($(o)!0.5!(b)$);    
+\coordinate (e1) at ($(a)!0.5!(c)$);    
+\filldraw[black!10] (o)--(a)--(c)--(b)--cycle;   
+\filldraw[black!30] (o)--(a)--(e1)--(b1)--cycle;   
+\draw[double,double distance=3pt] (o) -- (a);
+\draw[double,double distance=3pt] (b) -- (c);
+\draw[double,double distance=3pt] (b1) -- (e1);
+\end{tikzpicture}

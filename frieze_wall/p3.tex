@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+                    \coordinate (o) at (0,0);
+                    \path (o) ++(0:\w) coordinate (a);
+                    \path (o) ++(60:\w) coordinate (b);
+                    \path (o) ++(30:{sqrt(3)*\w}) coordinate (c);
+                    \coordinate (c2) at ($(o)!0.33!(c)$);    
+                    \coordinate (c3) at ($(o)!0.66!(c)$);    
+                    \filldraw[black!10] (o)--(a)--(c)--(b)--cycle;   
+                    \filldraw[black!30] (a)--(c2)--(b)--(c3)--cycle;
+                    \foreach \h in {o,a,b,c,c2,c3}{
+                    \node[shape aspect=1,regular polygon, regular polygon sides=3,draw=black,fill=white] at (\h) {};
+                    }
+                    \end{tikzpicture}

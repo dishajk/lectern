@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+\coordinate (o) at (0,0);
+\path (o) ++(0:\w) coordinate (a);
+\path (o) ++(60:\w) coordinate (b);
+\path (o) ++(30:{sqrt(3)*\w}) coordinate (c);
+\filldraw[black!30] (o)--(a)--(c)--(b)--cycle;   
+\end{tikzpicture}

@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\coordinate (o) at (0,0);
+\path (o) ++(0:\w) coordinate (a);
+\path (o) ++(60:\w) coordinate (b);
+\path (o) ++(30:{sqrt(3)*\w}) coordinate (c);
+\coordinate (a1) at ($(o)!0.5!(a)$);     
+\coordinate (b1) at ($(o)!0.5!(b)$);    
+\coordinate (c1) at ($(o)!0.5!(c)$);    
+\coordinate (d1) at ($(b)!0.5!(c)$);     
+\coordinate (e1) at ($(a)!0.5!(c)$);    
+\filldraw[black!10] (o)--(a)--(c)--(b)--cycle;   
+\filldraw[black!30] (o)--(a)--(c)--cycle;   
+\draw[double,double distance=3pt] (o) -- (c);
+\draw[double,double distance=3pt] (a) --++ (30:1);
+\draw[double,double distance=3pt] (b) --++ (30:1);
+\draw[dashed] (a1)--(e1);
+\draw[dashed] (d1)--(b1);
+\end{tikzpicture}

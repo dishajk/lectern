@@ -1,0 +1,32 @@
+\begin{tikzpicture}
+\coordinate (o) at (0,0);
+\path (o) ++(0:\w) coordinate (a);
+\path (o) ++(60:\w) coordinate (b);
+\path (o) ++(30:{sqrt(3)*\w}) coordinate (c);
+\coordinate (a1) at ($(o)!0.5!(a)$);    
+\coordinate (a2) at ($(o)!0.25!(a)$);    
+\coordinate (a3) at ($(o)!0.75!(a)$);    
+\coordinate (b1) at ($(o)!0.5!(b)$);    
+\coordinate (b2) at ($(o)!0.25!(b)$);    
+\coordinate (b3) at ($(o)!0.75!(b)$);    
+\coordinate (c1) at ($(o)!0.5!(c)$);    
+\coordinate (c2) at ($(o)!0.33!(c)$);    
+\coordinate (c3) at ($(o)!0.66!(c)$);    
+\coordinate (d1) at ($(b)!0.5!(c)$);    
+\coordinate (d2) at ($(b)!0.25!(c)$);    
+\coordinate (d3) at ($(b)!0.75!(c)$);    
+\coordinate (e1) at ($(a)!0.5!(c)$);    
+\coordinate (e2) at ($(a)!0.25!(c)$);    
+\coordinate (e3) at ($(a)!0.75!(c)$);
+\filldraw[black!10] (o)--(a)--(c)--(b)--cycle;   
+\filldraw[black!30] (o)--(a)--(c2)--cycle;   
+\foreach \h in {o,a,b,c}{
+\node[shape aspect=1,regular polygon, regular polygon sides=6,draw=black,fill=white] at (\h) {};
+}
+\foreach \h in {a1,b1,c1,d1,e1}{
+\node[shape aspect=1,kite,kite vertex angles=60,draw=black,fill=white] at (\h) {};
+}
+\foreach \h in {c2,c3}{
+\node[shape aspect=1,regular polygon, regular polygon sides=3,draw=black,fill=white] at (\h) {};
+}
+\end{tikzpicture}
