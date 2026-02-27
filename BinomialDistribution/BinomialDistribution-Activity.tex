@@ -3,28 +3,39 @@
 \usepackage{tikz}
 \begin{document}
 \centering
-\Huge\textbf{How to Play the Game?}
-\vspace{2in}
-\begin{center}
-\LARGE
-    \begin{enumerate}
-    \item[Step 1.]{Roll a pair of dice.}
-    \item[Step 2.]{Add the numbers shown on the dice.}
-    \item[Step 3.]{Record the total by placing a mark on the chart.}
-\end{enumerate}
-\end{center}
-\newpage
-\centering
 \begin{tikzpicture}[scale=1]
-    \draw (\textwidth/6,-1) grid[step=\textwidth/12] ({13\textwidth/12},\textwidth);
-    % \clip (-10.5,3) rectangle (10.5,{-21*sqrt(2)-3});
-    \foreach \n in {2,...,12}{
-    %   \foreach \x in {0,...,\y}{
-    \node[xshift=\textwidth/24] at ({(\n)*\textwidth/12},-1) {\n};
-    %     \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
-    %   }
+    \draw (0,0) grid[xstep=\textwidth/7] ({6\textwidth/7},0.875\textheight);
+    \foreach \n in {1,...,6}{
+    \node[xshift=\textwidth/14] at ({(\n-1)*\textwidth/7},-1) {\n};
     }    
-    \draw[ultra thick] (\textwidth/6,0) -- ({13\textwidth/12},0) node[midway,yshift=-1.5cm] {Sum};
-    \draw[ultra thick,->] (\textwidth/6,0) -- ({\textwidth/6},0.8\textheight) node[sloped,midway,above] {Frequency (Number of times the sum appears)};
+    \draw[ultra thick] (0,0) -- ({6\textwidth/7},0) node[midway,yshift=-2cm] {\Large Value of the die};
+    \draw[ultra thick] (0,0) -- (0,0.9\textheight) node[sloped,midway,above] {\Large Frequency (Number of times the value of the die appears)};
+\end{tikzpicture}
+\newpage
+\begin{tikzpicture}[scale=1]
+    \draw (0,0) grid[xstep=\textwidth/7] ({6\textwidth/7},0.875\textheight);
+    \foreach \n in {1,...,6}{
+    \node[xshift=\textwidth/14] at ({(\n-1)*\textwidth/7},-1) {\n};
+    }    
+    \draw[ultra thick] (0,0) -- ({6\textwidth/7},0) node[midway,yshift=-2cm] {\Large Value of the die};
+    \draw[ultra thick] (0,0) -- (0,0.9\textheight) node[sloped,midway,above] {\Large Frequency (Number of times the value of the die appears)};
+\end{tikzpicture}
+\newpage
+\begin{tikzpicture}[scale=1]
+    \draw (\textwidth/6,0) grid[xstep=\textwidth/12] ({13\textwidth/12},0.875\textheight);
+    \foreach \n in {2,...,12}{
+    \node[xshift=\textwidth/24] at ({(\n)*\textwidth/12},-1) {\n};
+    }    
+    \draw[ultra thick] (\textwidth/6,0) -- ({13\textwidth/12},0) node[midway,yshift=-2cm] {\Large Sum of 2 dice};
+    \draw[ultra thick] (\textwidth/6,0) -- ({\textwidth/6},0.9\textheight) node[sloped,midway,above] {\Large Frequency (Number of times the sum appears)};
+\end{tikzpicture}
+\newpage
+\begin{tikzpicture}[scale=1]
+    \draw (\textwidth/6,0) grid[xstep=\textwidth/12] ({13\textwidth/12},0.875\textheight);
+    \foreach \n in {2,...,12}{
+    \node[xshift=\textwidth/24] at ({(\n)*\textwidth/12},-1) {\n};
+    }    
+    \draw[ultra thick] (\textwidth/6,0) -- ({13\textwidth/12},0) node[midway,yshift=-2cm] {\Large Sum of 2 dice};
+    \draw[ultra thick] (\textwidth/6,0) -- ({\textwidth/6},0.9\textheight) node[sloped,midway,above] {\Large Frequency (Number of times the sum appears)};
 \end{tikzpicture}
 \end{document}

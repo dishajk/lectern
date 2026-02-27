@@ -1,30 +1,115 @@
-\documentclass[a3paper]{article}
-\usepackage[left=0cm,top=1in,right=0mm,bottom=0mm]{geometry}
+\documentclass[a4paper]{article}
+\usepackage[left=2cm,top=1in,right=2cm,bottom=0mm]{geometry}
+\usepackage{multirow}
 \usepackage{tikz}
+\usepackage{pgffor}
 \begin{document}
 \centering
 \Huge\textbf{How to Play the Game?}
-\vspace{2in}
-\begin{center}
+\vspace{1in}
 \LARGE
-    \begin{enumerate}
-    \item[Step 1.]{Roll a pair of dice.}
-    \item[Step 2.]{Add the numbers shown on the dice.}
+\begin{enumerate}
+    \item[Step 1.]{Roll the dice 2 times.}
+    \item[Step 2.]{Record the outcome below.}
+    \item[Step 2.]{Record the sum of the outcomes.}
     \item[Step 3.]{Record the total by placing a mark on the chart.}
 \end{enumerate}
-\end{center}
+\vspace{1in}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+\hline
+    Trial No.& Outcome of Roll 1 &Outcome of Roll 2 &Sum of Rolls\\
+ \hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+&   &   &   \\\hline
+\end{tabular}
 \newpage
 \centering
-\begin{tikzpicture}[scale=1]
-    \draw (\textwidth/6,-1) grid[step=\textwidth/12] ({13\textwidth/12},\textwidth);
-    % \clip (-10.5,3) rectangle (10.5,{-21*sqrt(2)-3});
-    \foreach \n in {2,...,12}{
-    %   \foreach \x in {0,...,\y}{
-    \node[xshift=\textwidth/24] at ({(\n)*\textwidth/12},-1) {\n};
-    %     \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
-    %   }
-    }    
-    \draw[ultra thick] (\textwidth/6,0) -- ({13\textwidth/12},0) node[midway,yshift=-1.5cm] {Sum};
-    \draw[ultra thick,->] (\textwidth/6,0) -- ({\textwidth/6},0.8\textheight) node[sloped,midway,above] {Frequency (Number of times the sum appears)};
-\end{tikzpicture}
+\Huge\textbf{How to Play the Game?}
+\vspace{1in}
+\LARGE
+\begin{enumerate}
+    \item[Step 1.]{Roll the dice 5 times.}
+    \item[Step 2.]{Record the outcome below.}
+    \item[Step 2.]{Record the sum of the outcomes.}
+    \item[Step 3.]{Record the total by placing a mark on the chart.}
+\end{enumerate}
+\vspace{1in}
+\begin{tabular}{ |p{1cm}||p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{1.75cm}|  }
+\hline
+    Trial No.& Outcome of Roll 1 &Outcome of Roll 2 & Outcome of Roll 3 &Outcome of Roll 4 &Outcome of Roll 5 &Sum of Rolls\\
+ \hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   \\\hline
+\end{tabular}
+\newpage
+\centering
+\Huge\textbf{How to Play the Game?}
+\vspace{1in}
+\LARGE
+\begin{enumerate}
+    \item[Step 1.]{Roll the dice 10 times.}
+    \item[Step 2.]{Record the outcome below.}
+    \item[Step 2.]{Record the sum of the outcomes.}
+    \item[Step 3.]{Record the total by placing a mark on the chart.}
+\end{enumerate}
+\vspace{1in}
+\normalsize
+\begin{tabular}{ |p{0.75cm}||p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{0.07\textwidth}|p{1cm}|}
+\hline
+    Trial No.& Outcome of Roll 1 &Outcome of Roll 2 & Outcome of Roll 3 &Outcome of Roll 4 &Outcome of Roll 5 & Outcome of Roll 6 &Outcome of Roll 7 & Outcome of Roll 8 &Outcome of Roll 9 &Outcome of Roll 10 &Sum of Rolls\\
+ \hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+&   &   &   &   &   &   &   &   &   &   &   \\\hline
+\end{tabular}
 \end{document}
