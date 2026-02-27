@@ -1,9 +1,11 @@
-\documentclass{standalone}
+\documentclass[a4paper]{article}
+\usepackage[left=0mm,top=0mm,right=0mm,bottom=0mm]{geometry}
 \usepackage{tikz}
 \begin{document}
+\centering
 \begin{tikzpicture}[scale=1]
-    \clip (-10.5,3) rectangle (10.5,{-21*sqrt(2)-3});
-    \foreach \y in {0,...,5}{
+    % \clip (-10.5,3) rectangle (10.5,{-21*sqrt(2)-3});
+    \foreach \y in {0,...,20}{
       \foreach \x in {0,...,\y}{
         \draw ({\y/2-\x},{-\y*sqrt(3)/2}) circle (0.5);
       }
