@@ -1,0 +1,124 @@
+\documentclass{beamer}
+\mode<presentation>
+\usepackage{tikz}
+\setbeamertemplate{caption}{\insertcaption}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \usepackage{pdfpc-movie}
+\usepackage{graphicx} %The mode "LaTeX => PDF" allows the following formats: .jpg  .png  .pdf  .mps
+% \usepackage{media9}
+\usetikzlibrary{lindenmayersystems,shapes.geometric,positioning,math}
+\title{Fractals}
+\author[dishajk]{Disha Kuzhively}
+\institute{International Centre for Theoretical Sciences - TIFR, Bangalore}
+\date[SGB]{7 March 2026}
+
+\pgfdeclarelindenmayersystem{Koch curve}{\rule{F -> F+F--F+F}}
+
+\pgfdeclarelindenmayersystem{Cantor set}{
+    \rule{F -> FfF}
+    \rule{f -> fff}
+}
+\pgfdeclarelindenmayersystem{Sierpinski Gasket}{
+\symbol{X}{\pgflsystemdrawforward}
+\symbol{A}{\pgflsystemdrawforward}
+\symbol{+}{\pgflsystemturnright} % Explicitly define + and - symbols.
+\symbol{-}{\pgflsystemturnleft}
+\rule{A -> A-X+A+X-A}
+\rule{X -> XX}
+}
+\pgfdeclarelindenmayersystem{Dragon curve}{
+\symbol{X}{\pgflsystemdrawforward}
+\symbol{A}{\pgflsystemdrawforward}
+\symbol{+}{\pgflsystemturnright} % Explicitly define + and - symbols.
+\symbol{-}{\pgflsystemturnleft}
+\rule{A -> A+X}
+\rule{X -> A-X}
+}
+\pgfdeclarelindenmayersystem{Penrose}{
+\symbol{F}{\pgflsystemdrawforward}
+\symbol{+}{\pgflsystemturnright} % Explicitly define + and - symbols.
+\symbol{-}{\pgflsystemturnleft}
+\rule{W -> YF++ZF----XF[-YF----WF]++}
+\rule{X -> +YF--ZF[---WF--XF]+}
+\rule{Y -> -WF++XF[+++YF++ZF]-}
+\rule{Z -> --YF++++WF[+ZF++++XF]--XF}
+}
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[pausesections]
+    \end{frame}
+\section{Fractals Around Us}
+\begin{frame}
+  \frametitle{Russian Dolls, Ferns, Trees, Cauliflower}
+  \centering
+  \only<1>{\includegraphics[height=0.5\textheight]{russiandolls}}
+  \only<2>{\includegraphics[height=0.5\textheight]{fern}\footnote{By Jml3 - Own work, \href{https://commons.wikimedia.org/w/index.php?curid=17823361}{CC BY-SA 3.0}}}
+\end{frame}
+\section{Fractals in Geometry}
+\begin{frame}
+  \frametitle{Koch curve}
+  \centering
+  \begin{tikzpicture}
+\foreach \i in {1,2,...,5}{
+\only<\i>{
+\draw [blue!50!black]
+[l-system={Koch curve, step=225pt/3^\i, angle=60, axiom=F, order=\i}]
+lindenmayer system;}}
+\end{tikzpicture}
+\end{frame}
+\begin{frame}
+  \frametitle{Cantor Set}
+  \centering
+\begin{tikzpicture}
+\foreach \i in {1,...,6}{\only<\i>{\draw [blue!50!black, ultra thick]
+[l-system={Cantor set, step=250pt/3^\i, angle=0, axiom=F, order=\i}]
+lindenmayer system;}}
+\end{tikzpicture} 
+\end{frame}
+\begin{frame}
+  \frametitle{Sierpinski Gasket}
+  \centering
+\begin{tikzpicture}
+  \foreach \i in {1,...,6}{
+    \only<\i>{
+      \draw[lindenmayer system={Sierpinski Gasket, step=225pt/2^\i, axiom=A-X-X, order=\i, angle=120}] lindenmayer system;
+    }
+  }  
+\end{tikzpicture} 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dragon Curve}
+  \centering
+\begin{tikzpicture}
+  \foreach \i in {1,...,7}{
+    \only<\i>{
+      \draw[lindenmayer system={Dragon curve, step=100pt/\i, axiom=A, order=\i, angle=90}] lindenmayer system;
+    }
+  }  
+\end{tikzpicture} 
+\end{frame}
+\begin{frame}
+  \frametitle{Penrose}
+  \centering
+  \foreach \i in {0,...,7}{
+    \only<\i>{
+      \includegraphics[width=0.9\textwidth]{penrose\i}
+    }
+  }  
+\end{frame}
+\begin{frame}
+\frametitle{References}
+\begin{enumerate}
+  \item[Book 1.]{\emph{The Fractal Geometry of Nature}, Beno\^{i}t Mandelbrot}
+  \item[Article 2.]{\emph{\href{https://www.ams.org/publicoutreach/feature-column/fcarc-ribbons}{Penrose Tilings Tied up in Ribbons}}, David Austin}
+\end{enumerate}
+\end{frame}
+\end{document}
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (1,1) rectangle (0,2) rectangle (-2,0) rectangle (1,-3) rectangle (6,2);
+  \end{tikzpicture}
