@@ -32,11 +32,35 @@ code={
 }
 
 \begin{document}
+\section{Recap}
+Topology
+Euler Characteristic
+
 \section{Problems}
+
+Several knights are situated on a 3 x 3 chessboard as shown in the Figure 1. Can they move, using the usual chess knight's move, to the position shown in Figure 2?
+
+\setchessboard{
+normalboard,
+maxfield=c3,
+setpieces={na1,nc1,Na3,Nc3},
+showmover=false}
+\chessboard
+
+\setchessboard{
+normalboard,
+maxfield=c3,
+setpieces={na1,Nc1,Na3,nc3},
+showmover=false}
+\chessboard
 
 There are 9 computers connected with several cables to make a network. (Each cable connects a pair of machines.) Is it possible for each computer to be connected to exactly 3 others?
 
+
+
 In Kottayam, there are 9 constituencies; some are connected by roads, and others are not. (A road connects a pair of constituencies with each other.) Is it possible that each of the constituencies is connected to exactly 3 other constituencies?
+
+
 
 It is known that in a certain company, each employee has exactly 3 friends among the co-workers. Is it possible that this company has exactly 9 employees?
 
@@ -73,29 +97,6 @@ edges
 
 4 people, all friends with each other
 \begin{tikzpicture}
-% \graph [
-%     nodes={
-%         circle,
-%         draw,
-%         fill=blue!20,      % Fills the circle with a color
-%         minimum size=6pt,  % Reduces the radius/size of the circle
-%         inner sep=0pt      % Removes internal padding so it stays small
-%     },
-%     empty nodes            % Clears the default text from inside the circles
-% ]
-% { 
-%     a[label=above:$a$] -- { 
-%         b[label=above:$b$], 
-%         c[label=above right:$c$], 
-%         d[label=right:$d$] 
-%     },
-    
-%     % Connect the bottom row of nodes
-%     b -- c -- d,
-    
-%     % Curve the connection between 'b' and 'd' so it loops under 'c'
-%     b -- [bend left=45] d
-% };
 \graph [
     nodes={
         circle,
@@ -191,12 +192,7 @@ $\implies$ sum of the degrees of the vertices is even
 $\implies$ even number of odd degree vertices
 
 \section{Sperner's Lemma}
-\begin{tikzpicture}
-\draw (-30:1) -- (90:1) -- (210:1) --cycle;
-\draw[ultra thick] (0:0) -- (-90:1);
-\draw[ultra thick] (0:0) -- (30:1);
-\draw[ultra thick] (0:0) -- (150:1);
-\end{tikzpicture}
+
 \begin{tikzpicture}
     \coordinate (A) at (0,0);
     \coordinate (B) at (6,0);
@@ -260,11 +256,10 @@ pattern color=red] (ac1) -- (r1) -- (ac2) -- cycle;
     \draw[pattern={mylines[size= 5pt,line width=.8pt,angle=40]},
 pattern color=red] (r2) -- (r4) -- (bc2) -- cycle;
 \end{tikzpicture}
+
 \begin{tikzpicture}
 \draw (-30:1) -- (90:1) -- (210:1) --cycle;
-% \draw[ultra thick] (0:0) -- (-90:1);
 \draw[ultra thick] (0:0) -- (30:1);
-% \draw[ultra thick] (0:0) -- (150:1);
 \filldraw [SkyBlue] (-30:1) circle [radius=2pt];
 \filldraw [Orange] (90:1) circle [radius=2pt];
 \filldraw [darkgray] (210:1) circle [radius=2pt];
@@ -278,6 +273,13 @@ pattern color=red] (r2) -- (r4) -- (bc2) -- cycle;
 \filldraw [SkyBlue] (-30:1) circle [radius=2pt];
 \filldraw [Orange] (90:1) circle [radius=2pt];
 \filldraw [Orange] (210:1) circle [radius=2pt];
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\draw (-30:1) -- (90:1) -- (210:1) --cycle;
+\draw[ultra thick] (0:0) -- (-90:1);
+\draw[ultra thick] (0:0) -- (30:1);
+\draw[ultra thick] (0:0) -- (150:1);
 \end{tikzpicture}
 
 See the skeleton as a graph.
@@ -361,17 +363,5 @@ In a group of 6 students, every pair of students are either friends or enemies. 
 % \newchessgame
 % \chessboard
 
-\setchessboard{
-normalboard,
-maxfield=c3,
-setpieces={na1,nc1,Na3,Nc3},
-showmover=false}
-\chessboard
 
-\setchessboard{
-normalboard,
-maxfield=c3,
-setpieces={na1,Nc1,Na3,nc3},
-showmover=false}
-\chessboard
 \end{document}
