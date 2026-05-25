@@ -1,0 +1,90 @@
+\documentclass[a4paper]{article}
+\usepackage{tikz}
+\pgfmathsetmacro{\l}{5}
+\title{Making a Tangram}
+\author{Disha Kuzhively}
+\date{}
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item[Step 1.] Take a sheet of paper and cut out a square.
+    \item[Step 2.] Cut two congruent triangles from this square.
+    \item[Step 3.] Cut one of the triangles again into two congruent triangles.
+    \item[Step 4.] Of the remaining big triangle, find a mid-point of the longest side and mark it with a press.
+    \item[Step 5.] Take the vertex opposite to the longest side and superimpose it on the mid-point of the longest side and cut the small triangle formed.
+    \item[Step 6.] Fold the trapezium to get two congruent trapeziums
+    \item[Step 7.]
+\end{enumerate}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw (0,0) rectangle (\l,\l);
+    \end{tikzpicture}
+    \caption{Step 1}
+\end{figure}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw (0,0) rectangle (\l,\l);
+        \draw[dashed] (0,0) -- (\l,\l);
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l,\l) -- (0,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+    \end{tikzpicture}
+    \caption{Step 2}
+\end{figure}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l,\l) -- (0,\l) -- cycle;
+        \draw[dashed] (0,\l) -- (\l/2,\l/2);
+        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+    \end{tikzpicture}
+    \caption{Step 3}
+\end{figure}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+        \draw[xshift=10,dashed] (\l/2,\l/2) --++ (-45:1) -- cycle;
+        \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
+                         (\l,\l) circle [radius=2pt];   
+    \end{tikzpicture}
+    \caption{Step 4}
+\end{figure}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,\l/2) -- (\l/2,0) -- cycle;
+        \filldraw[gray,xshift=10] (\l/2,0) --  (\l/2,\l/2) -- (\l,\l/2) -- cycle;   
+    \end{tikzpicture}
+        \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
+        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+    \end{tikzpicture}
+    \caption{Step 5}
+\end{figure}
+\begin{figure}
+    \centering
+        \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
+        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[xshift=20] (\l/2,\l/2) -- ()
+    \end{tikzpicture}
+    \caption{Step 6}
+\end{figure}
+\end{document}
