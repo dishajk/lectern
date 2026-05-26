@@ -13,7 +13,8 @@
     \item[Step 4.] Of the remaining big triangle, find a mid-point of the longest side and mark it with a press.
     \item[Step 5.] Take the vertex opposite to the longest side and superimpose it on the mid-point of the longest side and cut the small triangle formed.
     \item[Step 6.] Fold the trapezium to get two congruent trapeziums
-    \item[Step 7.]
+    \item[Step 7.] From one of the trapeziums cut one square and one right angle triangle.
+    \item[Step 8.] From the other trapezium, cut one parallelogram and one right angle triangle.
 \end{enumerate}
 \begin{figure}
     \centering
@@ -43,7 +44,7 @@
     \end{tikzpicture}
     \begin{tikzpicture}
         \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
     \end{tikzpicture}
     \caption{Step 3}
@@ -52,7 +53,7 @@
     \centering
     \begin{tikzpicture}
         \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
         \draw[xshift=10,dashed] (\l/2,\l/2) --++ (-45:1) -- cycle;
         \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
@@ -64,13 +65,13 @@
     \centering
     \begin{tikzpicture}
         \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,\l/2) -- (\l/2,0) -- cycle;
         \filldraw[gray,xshift=10] (\l/2,0) --  (\l/2,\l/2) -- (\l,\l/2) -- cycle;   
     \end{tikzpicture}
         \begin{tikzpicture}
         \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
         \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
     \end{tikzpicture}
@@ -80,11 +81,78 @@
     \centering
         \begin{tikzpicture}
         \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[yshift=10] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
         \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
-        \draw[xshift=20] (\l/2,\l/2) -- ()
+        \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
+                         (\l,\l) circle [radius=2pt]; 
+        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l/2,\l/2) -- ({3*\l/4},\l/4) -- (\l/2,0) -- cycle;
+        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+
+        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
     \end{tikzpicture}
     \caption{Step 6}
+\end{figure}
+\begin{figure}
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (0,0) -- (\l/2,\l/2) -- ({3*\l/4},\l/4) -- (\l/2,0) -- cycle;
+        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+
+        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
+                         (\l/2,\l/2) circle [radius=2pt]; 
+        \draw[xshift=10,dashed] (\l/4,\l/4) -- (\l/2,0);
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
+        \draw[xshift=5,yshift=-5] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
+        
+        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+
+        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+    \end{tikzpicture}
+    \caption{Step 7}
+\end{figure}
+\begin{figure}
+    \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
+        \draw[xshift=5,yshift=-5] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
+        
+        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+
+        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \filldraw[gray,xshift=15, yshift=5] (\l,\l/2) circle [radius=2pt]
+                         (\l/2,\l/2) circle [radius=2pt]; 
+        \draw[xshift=15, yshift=5,dashed] ({3*\l/4},\l/4) -- ({3*\l/4},{3*\l/4});
+    \end{tikzpicture}
+        \begin{tikzpicture}
+        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
+        \draw[xshift=5,yshift=-5] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
+        
+        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- ({3*\l/4},{3*\l/4}) -- ({3*\l/4},\l/4) -- cycle;
+        \draw[xshift=20,yshift=10] ({3*\l/4},{3*\l/4}) --(\l,\l)-- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+
+        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \draw[xshift=15, yshift=5,dashed] ({3*\l/4},\l/4) -- ({3*\l/4},{3*\l/4});
+    \end{tikzpicture}
+    \caption{Step 8}
 \end{figure}
 \end{document}
