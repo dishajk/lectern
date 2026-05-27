@@ -8,20 +8,21 @@
 \maketitle
 \begin{enumerate}
     \item[Step 1.] Take a sheet of paper and cut out a square.
-    \item[Step 2.] Cut two congruent triangles from this square.
-    \item[Step 3.] Cut one of the triangles again into two congruent triangles.
-    \item[Step 4.] Of the remaining big triangle, find a mid-point of the longest side and mark it with a press.
-    \item[Step 5.] Take the vertex opposite to the longest side and superimpose it on the mid-point of the longest side and cut the small triangle formed.
-    \item[Step 6.] Fold the trapezium to get two congruent trapeziums
-    \item[Step 7.] From one of the trapeziums cut one square and one right angle triangle.
-    \item[Step 8.] From the other trapezium, cut one parallelogram and one right angle triangle.
+    \item[Step 2.] Cut the square into two congruent triangles.
+    \item[Step 3.] Take one of the triangles and cut it again into two congruent triangles.
+    \item[Step 4.] Take the larger triangle that is left. Find the midpoint of its longest side and press the paper there to mark it.
+    \item[Step 5.] Fold the vertex opposite to the longest side of the triangle down to the middle point you marked. Cut off the small triangle made by the fold.
+    \item[Step 6.] Fold the trapezium to get two congruent trapeziums.
+    \item[Step 7.] From one trapezium, cut out one square and one right-angled triangle.
+    \item[Step 8.] From the other trapezium, cut out one parallelogram and one right-angled triangle.
 \end{enumerate}
+\newpage
 \begin{figure}
     \centering
     \begin{tikzpicture}
         \draw (0,0) rectangle (\l,\l);
     \end{tikzpicture}
-    \caption{Step 1}
+    \caption{Step 1: Take a sheet of paper and cut out a square.}
 \end{figure}
 \begin{figure}
     \centering
@@ -33,7 +34,7 @@
         \draw (0,0) -- (\l,\l) -- (0,\l) -- cycle;
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 2}
+    \caption{Step 2: Cut the square into two congruent triangles}
 \end{figure}
 \begin{figure}
     \centering
@@ -47,7 +48,7 @@
         \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 3}
+    \caption{Step 3: Take one of the triangles and cut it again into two congruent triangles}
 \end{figure}
 \begin{figure}
     \centering
@@ -59,7 +60,7 @@
         \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
                          (\l,\l) circle [radius=2pt];   
     \end{tikzpicture}
-    \caption{Step 4}
+    \caption{Step 4: Take the larger triangle that is left. Find the middle point of its longest side and press the paper there to mark it.}
 \end{figure}
 \begin{figure}
     \centering
@@ -75,7 +76,7 @@
         \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
         \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 5}
+    \caption{Step 5: Fold the vertex opposite to the longest side of the triangle down to the middle point you marked. Cut off the small triangle made by the fold.}
 \end{figure}
 \begin{figure}
     \centering
@@ -97,7 +98,7 @@
         \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
         \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
     \end{tikzpicture}
-    \caption{Step 6}
+    \caption{Step 6: Fold the trapezium to get two congruent trapeziums.}
 \end{figure}
 \begin{figure}
     \begin{tikzpicture}
@@ -123,7 +124,7 @@
         \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
         \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
     \end{tikzpicture}
-    \caption{Step 7}
+    \caption{Step 7: From one trapezium, cut out one square and one right-angled triangle.}
 \end{figure}
 \begin{figure}
     \begin{tikzpicture}
@@ -153,6 +154,6 @@
         \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
         \draw[xshift=15, yshift=5,dashed] ({3*\l/4},\l/4) -- ({3*\l/4},{3*\l/4});
     \end{tikzpicture}
-    \caption{Step 8}
+    \caption{Step 8: From the other trapezium, cut out one parallelogram and one right-angled triangle.}
 \end{figure}
 \end{document}
