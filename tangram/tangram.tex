@@ -1,9 +1,16 @@
 \documentclass[a4paper]{article}
+\usepackage{xkcdcolors}
 \usepackage{tikz}
-\pgfmathsetmacro{\l}{5}
+\usetikzlibrary {patterns}
+\pgfmathsetmacro{\l}{4.5}
+
+\usepackage[none]{hyphenat}
+\usepackage{caption}
+\captionsetup[figure]{name=Step}
 \title{Making a Tangram}
 \author{Disha Kuzhively}
 \date{}
+
 \begin{document}
 \maketitle
 \begin{enumerate}
@@ -17,12 +24,13 @@
     \item[Step 8.] From the other trapezium, cut out one parallelogram and one right-angled triangle.
 \end{enumerate}
 \newpage
+\twocolumn
 \begin{figure}
     \centering
     \begin{tikzpicture}
         \draw (0,0) rectangle (\l,\l);
     \end{tikzpicture}
-    \caption{Step 1: Take a sheet of paper and cut out a square.}
+    \caption{Take a sheet of paper and cut out a square.}
 \end{figure}
 \begin{figure}
     \centering
@@ -30,130 +38,126 @@
         \draw (0,0) rectangle (\l,\l);
         \draw[dashed] (0,0) -- (\l,\l);
     \end{tikzpicture}
+    \caption{Cut the square into two congruent triangles}
     \begin{tikzpicture}
-        \draw (0,0) -- (\l,\l) -- (0,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue] (0,0) -- (\l,\l) -- (0,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 2: Cut the square into two congruent triangles}
 \end{figure}
 \begin{figure}
     \centering
     \begin{tikzpicture}
-        \draw (0,0) -- (\l,\l) -- (0,\l) -- cycle;
-        \draw[dashed] (0,\l) -- (\l/2,\l/2);
-        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue] (0,0) -- (\l,\l) -- (0,\l) -- cycle;
+        \draw[dashed,very thick] (0,\l) -- (\l/2,\l/2);
+        \draw[xshift=10,pattern=crosshatch,pattern color=xkcdDarkPastelGreen] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
     \end{tikzpicture}
+    \caption{Take one of the triangles and cut it again into two congruent triangles}
     \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 3: Take one of the triangles and cut it again into two congruent triangles}
 \end{figure}
 \begin{figure}
     \centering
     \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
-        \draw[xshift=10,dashed] (\l/2,\l/2) --++ (-45:1) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l,\l) -- (\l,0) -- cycle;
+        \draw[xshift=10,dashed,very thick] (\l/2,\l/2) --++ (-45:1) -- cycle;
         \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
                          (\l,\l) circle [radius=2pt];   
     \end{tikzpicture}
-    \caption{Step 4: Take the larger triangle that is left. Find the middle point of its longest side and press the paper there to mark it.}
+    \caption{Take the larger triangle that is left. Find the middle point of its longest side and press the paper there to mark it.}
 \end{figure}
 \begin{figure}
     \centering
     \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,\l/2) -- (\l/2,0) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,\l/2) -- (\l/2,0) -- cycle;
         \filldraw[gray,xshift=10] (\l/2,0) --  (\l/2,\l/2) -- (\l,\l/2) -- cycle;   
     \end{tikzpicture}
+    \caption{Fold the vertex opposite to the longest side of the triangle down to the middle point you marked. Cut off the small triangle made by the fold.}
         \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
-        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
+        \draw[pattern=crosshatch dots,pattern color=xkcdLightEggplant,xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 5: Fold the vertex opposite to the longest side of the triangle down to the middle point you marked. Cut off the small triangle made by the fold.}
 \end{figure}
 \begin{figure}
     \centering
         \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
-        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l,\l) -- (\l,\l/2) -- (\l/2,0) -- cycle;
+        \draw[pattern=crosshatch dots,pattern color=xkcdLightEggplant,xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
         \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
                          (\l,\l) circle [radius=2pt]; 
-        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \draw[xshift=10,dashed,very thick] (\l/2,\l/2) -- ({3*\l/4},\l/4);
     \end{tikzpicture}
+    \caption{Fold the trapezium to get two congruent trapeziums.}
     \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l/2,\l/2) -- ({3*\l/4},\l/4) -- (\l/2,0) -- cycle;
-        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l/2,\l/2) -- ({3*\l/4},\l/4) -- (\l/2,0) -- cycle;
+        \draw[xshift=15,yshift=5,pattern=north east lines,pattern color=xkcdCement] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
 
-        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
-        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \draw[pattern=crosshatch dots,pattern color=xkcdLightEggplant,xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 6: Fold the trapezium to get two congruent trapeziums.}
 \end{figure}
 \begin{figure}
+    \centering
     \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (0,0) -- (\l/2,\l/2) -- ({3*\l/4},\l/4) -- (\l/2,0) -- cycle;
-        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (0,0) -- (\l/2,\l/2) -- ({3*\l/4},\l/4) -- (\l/2,0) -- cycle;
+        \draw[xshift=15,yshift=5,pattern=north east lines,pattern color=xkcdCement] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
 
-        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
-        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \draw[pattern=crosshatch dots,pattern color=xkcdLightEggplant,xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
         \filldraw[gray,xshift=10] (0,0) circle [radius=2pt]
                          (\l/2,\l/2) circle [radius=2pt]; 
-        \draw[xshift=10,dashed] (\l/4,\l/4) -- (\l/2,0);
+        \draw[xshift=10,dashed,very thick] (\l/4,\l/4) -- (\l/2,0);
     \end{tikzpicture}
+    \caption{From one trapezium, cut out one square and one right-angled triangle.}
     \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
-        \draw[xshift=5,yshift=-5] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
+        \draw[xshift=5,yshift=-5,pattern=vertical lines,pattern color=xkcdPigPink] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
         
-        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+        \draw[xshift=15,yshift=5,pattern=north east lines,pattern color=xkcdCement] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
 
-        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
-        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \draw[pattern=crosshatch dots,pattern color=xkcdLightEggplant,xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 7: From one trapezium, cut out one square and one right-angled triangle.}
 \end{figure}
 \begin{figure}
+    \centering
     \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
-        \draw[xshift=5,yshift=-5] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
+        \draw[xshift=5,yshift=-5,pattern=vertical lines,pattern color=xkcdPigPink] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
         
-        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+        \draw[xshift=15,yshift=5,pattern=north east lines,pattern color=xkcdCement] (\l/2,\l/2) -- (\l,\l) -- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
 
-        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
-        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
+        \draw[pattern=crosshatch dots,pattern color=xkcdLightEggplant,xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
         \filldraw[gray,xshift=15, yshift=5] (\l,\l/2) circle [radius=2pt]
                          (\l/2,\l/2) circle [radius=2pt]; 
-        \draw[xshift=15, yshift=5,dashed] ({3*\l/4},\l/4) -- ({3*\l/4},{3*\l/4});
+        \draw[xshift=15, yshift=5,dashed,very thick] ({3*\l/4},\l/4) -- ({3*\l/4},{3*\l/4});
     \end{tikzpicture}
+    \caption{From the other trapezium, cut out one parallelogram and one right-angled triangle.}
         \begin{tikzpicture}
-        \draw (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
-        \draw[xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
-        \draw[xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
-        \draw[xshift=5,yshift=-5] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
+        \draw[pattern=dots,pattern color=xkcdDust] (0,0) -- (\l/2,\l/2) -- (0,\l) -- cycle;
+        \draw[pattern=grid,pattern color=xkcdCloudyBlue,xshift=5,yshift=5] (\l/2,\l/2) -- (0,\l) -- (\l,\l) -- cycle;
+        \draw[pattern=crosshatch,pattern color=xkcdDarkPastelGreen,xshift=10] (\l/4,\l/4) -- (\l/2,0) -- ({3*\l/4},\l/4) -- (\l/2,\l/2) -- cycle;
+        \draw[xshift=5,yshift=-5,pattern=vertical lines,pattern color=xkcdPigPink] (0,0) -- (\l/4,\l/4) -- (\l/2,0) -- cycle;
         
-        \draw[xshift=15,yshift=5] (\l/2,\l/2) -- ({3*\l/4},{3*\l/4}) -- ({3*\l/4},\l/4) -- cycle;
-        \draw[xshift=20,yshift=10] ({3*\l/4},{3*\l/4}) --(\l,\l)-- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
+        \draw[xshift=15,yshift=5,pattern=north east lines,pattern color=xkcdCement] (\l/2,\l/2) -- ({3*\l/4},{3*\l/4}) -- ({3*\l/4},\l/4) -- cycle;
+        \draw[xshift=20,yshift=10,pattern=north west lines,pattern color=xkcdPurpleyGrey] ({3*\l/4},{3*\l/4}) --(\l,\l)-- (\l,\l/2) -- ({3*\l/4},\l/4) -- cycle;
 
-        \draw[xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
-        \draw[xshift=10,dashed] (\l/2,\l/2) -- ({3*\l/4},\l/4);
-        \draw[xshift=15, yshift=5,dashed] ({3*\l/4},\l/4) -- ({3*\l/4},{3*\l/4});
+        \draw[pattern=crosshatch dots,pattern color=xkcdLightEggplant,xshift=20] (\l/2,0) -- (\l,\l/2) -- (\l,0) -- cycle;
     \end{tikzpicture}
-    \caption{Step 8: From the other trapezium, cut out one parallelogram and one right-angled triangle.}
 \end{figure}
 \end{document}
