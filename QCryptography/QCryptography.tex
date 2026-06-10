@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary {trees,graphs}
+\begin{document}
+\section{Materials}
+Snap Fastener
+
+\section{Classical Cryptography exercises}
+\subsection{Caesar cipher - A type of substitution cipher}
+\begin{tikzpicture}
+\pgfmathsetmacro{\a}{360/26}
+\foreach \letter [count=\i from 0] in {a,...,z} {
+    \node[rotate={-\i*\a-90}] at ({-\i*\a}:5) {\textbf\letter};
+    \draw[very thin] (0,0) -- ({(\i+.5)*\a}:5.5); 
+}
+\draw (0,0) circle [radius=5.5];
+\draw (0,0) circle [radius=4.5];
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\pgfmathsetmacro{\a}{360/26}
+\foreach \letter [count=\i from 0] in {a,...,z} {
+    \node[rotate={-\i*\a-90}] at ({-\i*\a}:4) {\textbf\letter};
+    \draw[very thin] (0,0) -- ({(\i+.5)*\a}:4.5); 
+}
+\draw (0,0) circle [radius=4.5];
+\end{tikzpicture}
+\subsection{QR code}
+
+\end{document}
