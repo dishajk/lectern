@@ -1,0 +1,125 @@
+\documentclass[12pt,a4paper]{tufte-handout}
+
+\title{Getting up the GeoSphere}
+
+\author[dishajk]{Disha Kuzhively}
+
+%\date{28 March 2010} % without \date command, current date is supplied
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns}
+\usepackage[none]{hyphenat}
+\usepackage{svg}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\pgfmathsetmacro{\phi}{(1+sqrt(5))/2}
+\begin{document}
+
+\maketitle% this
+\section{Planar graphs}
+Drawing the planar graph of a polyhedron is a useful way to study its structure. In particular, it makes it easy to count the number of faces, vertices, and edges. 
+
+To obtain the planar graph of a polyhedron, imagine placing it on a table, stretching the top, and pushing it down onto the tabletop so that none of the edges cross.
+\begin{marginfigure}
+    \begin{tikzpicture}[
+    x={(1cm,0cm)},
+    y={(0cm,1cm)},
+    z={(-150:0.8cm)}
+]
+\draw (0,0,0) -- (1,0,0) -- (1,1,0) -- (0,1,0) -- cycle;
+\draw (0,0,1) -- (1,0,1) -- (1,1,1) -- (0,1,1) -- cycle;
+
+\draw (0,0,0) -- (0,0,1);
+\draw (1,0,0) -- (1,0,1);
+\draw (1,1,0) -- (1,1,1);
+\draw (0,1,0) -- (0,1,1);
+
+\end{tikzpicture}
+    \begin{tikzpicture}
+\draw (0,0) --(1,0) -- (1,1) -- (0,1) -- cycle;
+\draw (0,0) -- ++(-135:1) coordinate (a);
+\draw (1,0) -- ++(-45:1) coordinate (b);
+\draw (1,1) -- ++(45:1) coordinate (c);
+\draw (0,1) -- ++(135:1) coordinate (d);
+\draw (a) -- (b) -- (c) -- (d) -- cycle;
+    \end{tikzpicture}
+      \caption{A cube and its planar graph.}%
+  \label{fig:fullfig}%
+\end{marginfigure}
+
+\subsection{Task 1}
+Draw the planar graph of an icosahedron. Make sure it has 20 triangles.
+\section{From the icosahedron to the football}
+A geodesic polyhedron is a polyhedron whose vertices lie on a sphere and whose faces are obtained by subdividing the faces of an icosahedron into smaller polygons while remaining close to the spherical shape.
+
+A particularly famous example is the football (also called the truncated icosahedron), whose faces consist of pentagons and hexagons.
+
+Before studying the football, begin with the dodecahedron.
+
+\subsection{Task 2}
+How many vertices and edges does the dodecahedron have? How many vertices and edges does the football have? Find a relationship between the number of vertices $V$ and the number of edges $E$ that holds for the football. Does this formula also hold for the dodecahedron? Conjecture a formula that might be true for any polyhedron made entirely from pentagons and hexagons.
+
+Let $F_5$ be the number of pentagonal faces, $F_6$ be the number of hexagonal faces, and $F$ denote the total number of faces.
+
+\subsection{Task 3}
+
+Find $F$ in terms of $F_5$ and $F_6$
+
+\subsection{Task 4}
+Each edge belongs to exactly two faces. Use this to derive a formula relating $F_5$, $F_6$, and $E$. 
+
+\section{Euler's formula}
+
+Recall Euler's identity for convex polyhedra:
+\begin{equation}
+V- E + F= 2
+\end{equation}
+Use your answer from the previous tasks together with Euler's formula to derive a relationship between $F_5$ and $F_6$. 
+
+What does your result tell you about the number of pentagons in any polyhedron made entirely from pentagons and hexagons?
+
+\section{Building a GeoSphere}
+Start with an icosahedron. Subdivide each triangular face into smaller triangles by joining the midpoints of its edges, so that every face is split into four triangles. Next, truncate the original vertices of the icosahedron. The resulting polyhedron has pentagonal faces where the original vertices were and hexagonal faces everywhere else. This is the familiar football pattern and is the first member of a family of Goldberg polyhedra.
+\begin{marginfigure}
+    \begin{tikzpicture}[
+    x={(1cm,0cm)},
+    y={(0cm,1cm)},
+    z={(-150:0.8cm)}
+]
+\coordinate (a1) at (0,1,\phi);
+\coordinate (a2) at (0,-1,\phi);
+\coordinate (a3) at (0,1,-\phi);
+\coordinate (a4) at (0,-1,-\phi);
+\coordinate (a5) at (1,\phi,0);
+\coordinate (a6) at (-1,\phi,0);
+\coordinate (a7) at (1,-\phi,0);
+\coordinate (a8) at (-1,-\phi,0);
+\coordinate (a9) at (\phi,0,1);
+\coordinate (a10) at (\phi,0,-1);
+\coordinate (a11) at (-\phi,0,1);
+\coordinate (a12) at (-\phi,0,-1);
+    \end{tikzpicture}
+\end{marginfigure}
+\end{document}
