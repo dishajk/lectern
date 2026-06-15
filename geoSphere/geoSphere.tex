@@ -20,9 +20,10 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{tikz}
-\usetikzlibrary{calc,patterns}
+\usetikzlibrary{calc,patterns,perspective}
 \usepackage[none]{hyphenat}
 \usepackage{svg}
+\usepackage{xkcdcolors}
 
 % Standardize command font styles and environments
 \newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
@@ -103,10 +104,7 @@ What does your result tell you about the number of pentagons in any polyhedron m
 \section{Building a GeoSphere}
 Start with an icosahedron. Subdivide each triangular face into smaller triangles by joining the midpoints of its edges, so that every face is split into four triangles. Next, truncate the original vertices of the icosahedron. The resulting polyhedron has pentagonal faces where the original vertices were and hexagonal faces everywhere else. This is the familiar football pattern and is the first member of a family of Goldberg polyhedra.
 \begin{marginfigure}
-    \begin{tikzpicture}[
-    x={(1cm,0cm)},
-    y={(0cm,1cm)},
-    z={(-150:0.8cm)}
+    \begin{tikzpicture}[3d view
 ]
 \coordinate (a1) at (0,1,\phi);
 \coordinate (a2) at (0,-1,\phi);
@@ -120,6 +118,27 @@ Start with an icosahedron. Subdivide each triangular face into smaller triangles
 \coordinate (a10) at (\phi,0,-1);
 \coordinate (a11) at (-\phi,0,1);
 \coordinate (a12) at (-\phi,0,-1);
+
+% \foreach \c in {1,...,12}{
+%     \draw (a\c) circle (2pt); 
+% }
+% \draw[xkcdPurple,very thin] (a1) node[right] {$a_{1}$}-- (a2) node[right] {$a_{2}$}-- (a4) node[right] {$a_{4}$}--(a3)  node[right] {$a_3$} -- cycle;
+% \draw[xkcdGreen] (a5)  node[right] {$a_{5}$} -- (a6)  node[right] {$a_{6}$}-- (a8)  node[right] {$a_{8}$}--(a7)  node[right] {$a_{7}$}-- cycle;
+% \draw[xkcdBlue] (a9)node[right] {$a_{9}$} -- (a10)node[right] {$a_{10}$} -- (a12)  node[right] {$a_{12}$} --(a11)node[right] {$a_{11}$} -- cycle;
+\draw (a1) -- (a2) -- (a9) -- cycle;
+\draw (a1) -- (a2) -- (a11) -- cycle;
+\draw (a3) -- (a4) -- (a10) -- cycle;
+\draw (a3) -- (a4) -- (a12) -- cycle;
+\draw (a5) -- (a6) -- (a1) -- cycle;
+\draw (a5) -- (a6) -- (a3) -- cycle;
+\draw (a7) -- (a8) -- (a2) -- cycle;
+\draw (a7) -- (a8) -- (a4) -- cycle;
+\draw (a9) -- (a10) -- (a5) -- cycle;
+\draw (a9) -- (a10) -- (a7) -- cycle;
+\draw (a11) -- (a12) -- (a6) -- cycle;
+\draw (a11) -- (a12) -- (a8) -- cycle;
+\draw[xkcdMagenta] (a3) -- (a5) -- (a10) -- cycle;
     \end{tikzpicture}
+    \caption{icosahedron}
 \end{marginfigure}
 \end{document}
