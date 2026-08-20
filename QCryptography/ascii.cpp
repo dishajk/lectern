@@ -31,10 +31,14 @@ void decToBinary(int n)
 
 int main()
 {
-    int n = int('A');
+    char letter;
+    cout << "Enter the letter:\t";
+    cin >> letter;
+    int n = int(letter);
     decToBinary(n);
     cout<<"\n";
-    cout << int('A') << "\n";
+    cout << int(letter) << "\n";
+    cout << char('9') << "\n";
     return 0;
 
 }
