@@ -1,262 +1,237 @@
-\documentclass{article}
-\usepackage[margin=1cm]{geometry}
-\usepackage{graphicx}
+% Background rgb(240, 235, 220)
+\documentclass{beamer}
+\mode<presentation>
+\usepackage[T1]{fontenc}
 \usepackage{tikz}
-\usetikzlibrary {trees,graphs,3d,positioning}
-\usepackage{xkcdcolors}
+\usetikzlibrary {calc,graphs,graphs.standard,patterns.meta,trees,3d,positioning}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.5}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{bgYellow}{HTML}{F0EBDC}
+\definecolor{myViolet}{HTML}{403340}
+\usepackage{xkcdcolors}
 \usepackage{physics}
-\usepackage{xparse}
+\usepackage{array}
 \usepackage{siunitx}
+
+% expandable loop (used to avoid scope problems in tabular cells with the
+% standard \loop)
+\def\boucle #1\repeat {#1\b@@cle {#1}\repeat \repeat }
+\def\b@@cle #1{\repeat #1\b@@cle {#1}}
+
+\makeatletter
+\newcount\@nn
+\newcount\@mm
+\newcount\@base
+\newcount\@baseminusone
+
+% please do not use this at home
+% #1 must be a counter name, not something expanding to a number.
+\def\@arabalpha #1{\ifcase #10\or1\or2\or3\or4\or5\or6\or7\or8\or9\or 
+A\or B\or C\or D\or E\or F\or G\or H\or I\or J\or K\or L\or M\or N\or O\or
+P\or Q\or R\or S\or T\or U\or V\or W\or X\or Y\or Z\fi}
+
+\newcommand{\baseexpansion}[2][2]{% no negative numbers please!
+\def\@digits{}%
+\@base#1\relax \@baseminusone\@base\advance\@baseminusone-1
+\@nn #2\relax  % this is the number to be written in base #1
+%
+\ifnum\@baseminusone<36
+\def\onerow{#1\kern.1em\hbox{\vrule
+   \vtop {\hbox{\ \the\@nn}\kern.3ex\hrule height.1ex }} &%
+   \global\@mm\@nn \global\divide\@mm\@base 
+   \multiply\@mm\@base \advance\@nn-\@mm 
+   \the\@nn \xdef\@digits{\@arabalpha\@nn\@digits}}%
+\else
+\def\onerow{#1\kern.1em\hbox{\vrule
+   \vtop {\hbox{\ \the\@nn}\kern.3ex\hrule height.1ex }} &%
+   \global\@mm\@nn \global\divide\@mm\@base 
+   \multiply\@mm\@base \advance\@nn-\@mm 
+   \the\@nn \xdef\@digits{\the\@nn.\@digits}}%
+\fi
+%
+\leavevmode\oalign{$#2_{10}:$\hfil\cr
+      $\left.
+      \begin{tabular}{r|l}
+         \boucle \onerow \\ \ifnum\@nn>\@baseminusone\global\@nn\@mm \repeat
+      \end{tabular}\right\rbrace=
+      \mathtt{\@digits}_{#1}$}}     % \hfil removed from the macro
+
+\makeatother
+
 \title{Nrxkqrj Zovmqldoxmev}
-% key = 23
+\author[dishajk]{Disha Kuzhively\\{\scriptsize disha.jk@icts.res.in}}
+\institute{ICTS-TIFR}
+\date[Science Gallery Bengaluru]{Sunday, 23 August 2026}
 \begin{document}
-\thispagestyle{empty}
-\begin{tikzpicture}
-\pgfmathsetmacro{\a}{360/26}
-\foreach \letter [count=\i from 0] in {a,...,z} {
-    \node[rotate={-\i*\a-90}] at ({-\i*\a}:5) {\textbf\letter};
-    \node[rotate={-\i*\a-90}] at ({-\i*\a}:4.7) {\footnotesize\i};
-    \draw[very thin] (0,0) -- ({(\i+.5)*\a}:5.5); 
-}
-\draw (0,0) circle [radius=5.5];
-\draw (0,0) circle [radius=4.5];
-\end{tikzpicture}
-\begin{tikzpicture}
-\pgfmathsetmacro{\a}{360/26}    
-\foreach \letter [count=\i from 0] in {a,...,z} {
-    \node[rotate={-\i*\a-90}] at ({-\i*\a}:4) {\textbf\letter};
-    \draw[very thin] (0,0) -- ({(\i+.5)*\a}:4.5); 
-}
-\draw (0,0) circle [radius=4.5];
-\end{tikzpicture}
-\begin{tikzpicture}
-\pgfmathsetmacro{\a}{360/26}
-\foreach \letter [count=\i from 0] in {a,...,z} {
-    % \node[rotate={-\i*\a-90}] at ({-\i*\a}:5) {\textbf\letter};
-    \draw[very thin] (0,0) -- ({(\i+.5)*\a}:5.5); 
-}
-\draw (0,0) circle [radius=5.5];
-\draw (0,0) circle [radius=4.5];
-\end{tikzpicture}
-\newpage
-\begin{enumerate}
-    \item Nrxkqrj Zovmqldoxmev
-    \item Hohphqwdub, pb ghdu Zdwvrq
-    \item Bw mdmzg ikbqwv bpmzm qa iteiga iv mycit ivl wxxwaqbm zmikbqwv
-    \item Evmvi crlxy rk czmv uirxfej
-    \item Hdojxcjiymdv dn ocz kjrzmcjpnz ja ocz xzgg
-\end{enumerate}
-\hrule
-\begin{enumerate}
-    \item Nrxkqrj Zovmqldoxmev
-    \item Bw mdmzg ikbqwv bpmzm qa iteiga iv mycit ivl wxxwaqbm zmikbqwv
-    \item Hohphqwdub, pb ghdu Zdwvrq
-    \item Evmvi crlxy rk czmv uirxfej
-    \item Hdojxcjiymdv dn ocz kjrzmcjpnz ja ocz xzgg
-\end{enumerate}
-\hrule
-\begin{enumerate}
-    \item Nrxkqrj Zovmqldoxmev
-    \item Hohphqwdub, pb ghdu Zdwvrq
-    \item Evmvi crlxy rk czmv uirxfej
-    \item Bw mdmzg ikbqwv bpmzm qa iteiga iv mycit ivl wxxwaqbm zmikbqwv
-    \item Hdojxcjiymdv dn ocz kjrzmcjpnz ja ocz xzgg
-\end{enumerate}
-\hrule
-\begin{enumerate}
-    \item Nrxkqrj Zovmqldoxmev
-    \item Hohphqwdub, pb ghdu Zdwvrq
-    \item Bw mdmzg ikbqwv bpmzm qa iteiga iv mycit ivl wxxwaqbm zmikbqwv
-    \item Evmvi crlxy rk czmv uirxfej
-    \item Hdojxcjiymdv dn ocz kjrzmcjpnz ja ocz xzgg
-\end{enumerate}
-\hrule
-\begin{enumerate}
-    \item Nrxkqrj Zovmqldoxmev
-    \item Evmvi crlxy rk czmv uirxfej
-    \item Hohphqwdub, pb ghdu Zdwvrq
-    \item Bw mdmzg ikbqwv bpmzm qa iteiga iv mycit ivl wxxwaqbm zmikbqwv
-    \item Hdojxcjiymdv dn ocz kjrzmcjpnz ja ocz xzgg
-\end{enumerate}
-\hrule
-\begin{enumerate}
-    \item Nrxkqrj Zovmqldoxmev
-    \item Evmvi crlxy rk czmv uirxfej
-    \item Hohphqwdub, pb ghdu Zdwvrq
-    \item Hdojxcjiymdv dn ocz kjrzmcjpnz ja ocz xzgg
-    \item Bw mdmzg ikbqwv bpmzm qa iteiga iv mycit ivl wxxwaqbm zmikbqwv
-\end{enumerate}
-\newpage
-\begin{tikzpicture}
-    \node[right,xkcdBlue] at (0,1) {Number:};
-\foreach \i in {0,...,5}{
-    \node at ({5-\i},0) {$2^\i$};
-    \node at ({9+5-\i},-2) {$2^\i$};
-    \pgfmathtruncatemacro{\dec}{2^\i}
-    \node at ({5-\i},-1) {\dec};
-    \node at ({9+5-\i},-3) {\dec};
-}
-\node[left,xkcdBlue] at (-.5,-2) {Key:};
-\node[left,xkcdBlue] at (-.5,-3) {Message:};
-\node[left,xkcdBlue] at (-.5,-4) {Cipher:};
-\draw[xshift=-0.5cm,yshift=-0.5cm] (0,-4) grid (6,1);
-\draw[xshift=-0.5cm,yshift=-0.5cm] (9,-3) grid (15,2);
-\draw[dashed] (6,-5) -- (6,2);
-\node[left,xkcdDarkGreen] at (8.5,1) {Key:};
-\node[left,xkcdDarkGreen] at (8.5,0) {Cipher:};
-\node[left,xkcdDarkGreen] at (8.5,-1) {Message:};
-\node[right,xkcdDarkGreen] at (8,-4) {Number:};
-\end{tikzpicture}
-\hrule
-\begin{tikzpicture}
-    \node[right,xkcdBlue] at (0,1) {Number:};
-\foreach \i in {0,...,5}{
-    \node at ({5-\i},0) {$2^\i$};
-    \node at ({9+5-\i},-2) {$2^\i$};
-    \pgfmathtruncatemacro{\dec}{2^\i}
-    \node at ({5-\i},-1) {\dec};
-    \node at ({9+5-\i},-3) {\dec};
-}
-\node[left,xkcdBlue] at (-.5,-2) {Key:};
-\node[left,xkcdBlue] at (-.5,-3) {Message:};
-\node[left,xkcdBlue] at (-.5,-4) {Cipher:};
-\draw[xshift=-0.5cm,yshift=-0.5cm] (0,-4) grid (6,1);
-\draw[xshift=-0.5cm,yshift=-0.5cm] (9,-3) grid (15,2);
-\draw[dashed] (6,-5) -- (6,2);
-\node[left,xkcdDarkGreen] at (8.5,1) {Key:};
-\node[left,xkcdDarkGreen] at (8.5,0) {Cipher:};
-\node[left,xkcdDarkGreen] at (8.5,-1) {Message:};
-\node[right,xkcdDarkGreen] at (8,-4) {Number:};
-\end{tikzpicture}
-\hrule
-\begin{tikzpicture}
-    \node[right,xkcdBlue] at (0,1) {Number:};
-\foreach \i in {0,...,5}{
-    \node at ({5-\i},0) {$2^\i$};
-    \node at ({9+5-\i},-2) {$2^\i$};
-    \pgfmathtruncatemacro{\dec}{2^\i}
-    \node at ({5-\i},-1) {\dec};
-    \node at ({9+5-\i},-3) {\dec};
-}
-\node[left,xkcdBlue] at (-.5,-2) {Key:};
-\node[left,xkcdBlue] at (-.5,-3) {Message:};
-\node[left,xkcdBlue] at (-.5,-4) {Cipher:};
-\draw[xshift=-0.5cm,yshift=-0.5cm] (0,-4) grid (6,1);
-\draw[xshift=-0.5cm,yshift=-0.5cm] (9,-3) grid (15,2);
-\draw[dashed] (6,-5) -- (6,2);
-\node[left,xkcdDarkGreen] at (8.5,1) {Key:};
-\node[left,xkcdDarkGreen] at (8.5,0) {Cipher:};
-\node[left,xkcdDarkGreen] at (8.5,-1) {Message:};
-\node[right,xkcdDarkGreen] at (8,-4) {Number:};
-\end{tikzpicture}
-\newpage
-\begin{tikzpicture}
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,0) {Bit:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-1) {Basis:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-2) {State:};
-\draw (0,-2) grid (16,1);
-\draw[dashed] (-1,-3) -- (17,-3);
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-5) {Basis:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-6) {State:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-7) {Bit:};
-\draw (0,-7) grid (16,-4);
-\end{tikzpicture}
-\vspace{2cm}
-\hrule
-\vspace{2cm}
-\begin{tikzpicture}
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,0) {Bit:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-1) {Basis:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-2) {State:};
-\draw (0,-2) grid (16,1);
-\draw[dashed] (-1,-3) -- (17,-3);
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-5) {Basis:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-6) {State:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-7) {Bit:};
-\draw (0,-7) grid (16,-4);
-\end{tikzpicture}
-\newpage
-\begin{tikzpicture}
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,0) {Bit:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-1) {Basis:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-2) {State:};
-\draw (0,-2) grid (16,1);
-\draw[dashed] (-1,-3) -- (17,-3);
-\node[left,yshift=0.5cm,xkcdRed] at (-0.5,-5) {Basis:};
-\node[left,yshift=0.5cm,xkcdRed] at (-0.5,-6) {State:};
-\draw[dashed] (-1,-7) -- (17,-7);
-\draw (0,-6) grid (16,-4);
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-9) {Basis:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-10) {State:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-11) {Bit:};
-\draw (0,-11) grid (16,-8);
-\end{tikzpicture}
-\vspace{0.5cm}
-\hrule
-\vspace{0.5cm}
-\begin{tikzpicture}
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,0) {Bit:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-1) {Basis:};
-\node[left,yshift=0.5cm,xkcdBlue] at (-0.5,-2) {State:};
-\draw (0,-2) grid (16,1);
-\draw[dashed] (-1,-3) -- (17,-3);
-\node[left,yshift=0.5cm,xkcdRed] at (-0.5,-5) {Basis:};
-\node[left,yshift=0.5cm,xkcdRed] at (-0.5,-6) {State:};
-\draw[dashed] (-1,-7) -- (17,-7);
-\draw (0,-6) grid (16,-4);
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-9) {Basis:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-10) {State:};
-\node[left,yshift=0.5cm,xkcdDarkGreen] at (-0.5,-11) {Bit:};
-\draw (0,-11) grid (16,-8);
-\end{tikzpicture}
-\end{document}
-\section{Materials}
-Snap Fastener
+\setbeamercolor{background canvas}{bg=bgYellow}
+\setbeamercolor{title}{fg=myViolet}
+\setbeamercolor{frametitle}{fg=myViolet}
+\begin{frame}
+    \titlepage
+\end{frame}
+% \begin{frame}
+% \frametitle{Outline}
+% \tableofcontents[pausesections]
+% \end{frame}
+\section{Decrypting the Title}
+\begin{frame}
+    \frametitle{Decrypting the Title}
+    \only<1-7>{\begin{block}{Nrxkqrj Zovmqldoxmev}
+    \end{block}}
+        \begin{tikzpicture}
+            \pgfmathsetmacro{\a}{360/26}
+            \foreach \letter [count=\i from 0] in {a,...,z} {
+                \only<2-5>{
+                \node at (\i,0) {\letter};
+                \draw[xshift=-0.5cm,yshift=-0.5cm] (0,0) grid (12,1);
+                }
+                \only<3-4>{
+                \node at ({Mod((\i+5),26)},-1) {\letter};
+                \draw[xshift=-0.5cm,yshift=-0.5cm] (0,-1) grid (12,0);
+                }
+                \only<5>{
+                \node at ({Mod((\i+3),26)},-1) {\letter};
+                \draw[xshift=-0.5cm,yshift=-0.5cm] (0,-1) grid (12,0);
+                }
+                \only<7>{
+                
+                \node[rotate={-\i*\a-90}] at ({-\i*\a}:3) {\textbf\letter};
+                \node[rotate={-Mod((\i+5),26)*\a-90}] at ({-Mod((\i+5),26)*\a}:2.5) {\letter};
+                \draw[very thin] (0,0) -- ({(\i+.5)*\a}:3.5); 
+                }
+                }
+                \only<7>{
+                    \draw (0,0) circle [radius=3.5];
+                    \draw (0,0) circle [radius=2.7];
+                }
+        \end{tikzpicture}
+        \only<4>{
+            Shift: 5
+        }
+        \only<5>{
+            Shift: 3
+        }
+        \only<6>{
+            \includegraphics[width=0.8\textwidth]{letter_frequency}\footnote{English Letter Frequency (based on a sample of 40,000 words). Source: \url{https://pi.math.cornell.edu/~mec/}}
+            \note{frequency analysis}
+        }
+        \only<8>{
+            \begin{itemize}
+                \item Caesar cipher (substitution cipher)
+                \item can be cracked using frequency analysis or brute force computation
+                \item \alert{Key}
+                \item \alert{Message}
+            \end{itemize}
+        }
+\end{frame}
+\section{One Time Pad}
+\begin{frame}
+    \frametitle{Character encoding}
+    \only<3>{\begin{block}{Convention of using a numerical value to represent each character of a script}
+    \end{block}}
+    
+    \only<2-4>{American Standard Code for Information Interchange (ASCII)}
+    
+    \only<2-3>{UTF-8 (Unicode)
+    
+    UTF-16
+    
+    UTF-32
+    
+    Windows-1252}
+    
+    \only<4-5>{
+        % \begin{tabular}{c!{\vrule}c!{\vrule}c!{\vrule}c!{\vrule}c!{\vrule}c!{\vrule}c}
+        %     q & u & a & n & t & u & m\pause\\\hline
+        %     113 & 117 & 97 & 110 & 116 & 117 & 109\pause\\\hline
+        %     1110001 & 1110101 & 1100001 & 1101110 & 1110100 & 1110101 & 1101101\pause\\\hline
+        % \end{tabular}
+        \begin{tabular}{ccc}
+            A & 65 & 1000001\\
+            B & 66 & 1000010\\
+            C & 67 & 1000011\\
+            \vdots & \vdots & \vdots\\
+            a & 97 & 1100001\\
+            b & 98 & 1100010\\
+            \vdots & \vdots & \vdots\\
+        \end{tabular}
+    }
+    \only<5>{
+      \baseexpansion{68}\hfil
+    }
+\end{frame}
+\begin{frame}
+    \begin{enumerate}
+        \item<+-> Form Sender-Receiver pairs.
+        \item<+-> The Sender writes their 6-bit \alert{key} on both the Sender and Receiver copies.
+        \item<+-> The Sender gives the Receiver copy to the Receiver.
+        \item<+-> The Sender chooses a number, converts it to binary, and encrypts it using their key.
+        \item<+-> Protocol: bitwise addition (0+0=0, 0+1=1+0=1 and 1+1=0)
+        \item<+-> The Sender gives the encrypted message (cipher) to the Receiver.
+        \item<+-> The Receiver uses the key to decrypt the message.
+    \end{enumerate}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+        \item<+-> Why can the Receiver retrieve the original message by adding the same key again?
+        \item<+-> Can someone who does not have the key (an eavesdropper) retrieve the message?
+        \item<+-> If the eavesdropper has to guess the key, what is the probability of guessing it correctly?
+        \item<+-> What assumption have we made in this protocol that makes it impractical for real-world communication?
+    \end{itemize}
+\end{frame}
+\section{QKD}
+\begin{frame}
+\only<1-2>{    \begin{block}{How do they share the key in the first place?}
+        In quantum physics, measuring a particle physically alters it
+    \end{block}}
+    \only<2-6>{
+        \begin{block}{bit-to-qubit correspondence}
+        \end{block}
+        \begin{tabular}{ccc}
+                 & $\oplus$ & $\otimes$\\
+                 & Horizontal-Vertical basis & $\pm$ \ang{45} basis\\\hline
+                 0 & $\rightarrow$ & $\nearrow$\\
+                 1 & $\leftarrow$ & $\searrow$\\
+            \end{tabular}
+    }
+        \only<7>{
+\begin{tabular}{ccc}
+            State Preparation & $\oplus$ measurement result & $\otimes$ measurement result\\
+            $\rightarrow$ & $\rightarrow$ & Random (R)\\
+            $\leftarrow$ & $\leftarrow$ &R\\
+            $\nearrow$ & R & $\nearrow$\\
+            $\searrow$ & R & $\searrow$\\
+        \end{tabular}
+    }
+    \only<9>{
+        \begin{block}{In which cases will the Sender and Receiver share the same bit with 100\% certainty?}
+        \end{block}
+    }
+    \begin{enumerate}
+        \item<3-> The Sender randomly chooses a bit (0 or 1) to send to the Receiver. Record the 16-bit sequence in the sheet.
+        \item<4-> For each bit, the Sender randomly chooses a basis and prepares the corresponding photon state. Record the basis in the sheet.
+        \item<5-> The Receiver randomly chooses a basis in which to measure it. Record the basis in the sheet.
+        \item<6-> The Sender prepares the photon in the chosen state and sends it to the Receiver.
+        \item<7-> The Receiver measures the photon using their chosen basis.
+        \item<8-> The Receiver records the bit obtained from the measurement.
+        \item<10-> For each bit, the Sender tells the Receiver which basis was used to prepare the photon, without revealing the bit value.
+        \item<11-> The Receiver compares this with the basis used for the measurement: If the bases match, keep the bit. If the bases differ, discard the bit. The Receiver tells the Sender which bits to keep and which to discard.
+    \end{enumerate}
 
-\section{Classical Cryptography exercises}
-\subsection{Caesar cipher - A type of substitution cipher}
-
-
-
-Build your own
-
-
-
-
-\begin{enumerate}
-    \item (3) Elementary, my dear Watson
-    \item (8) To every action there is always an equal and opposite reaction
-    \item (17) Never laugh at live dragons.
-    \item (21) Mitochondria is the powerhouse of the cell
-\end{enumerate}
-\includegraphics[width=\textwidth]{letter_frequency}
-English Letter Frequency (based on a sample of 40,000 words)
-https://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html
-\subsection{QR code}
-\section{Concept}
-Light is made of photons. It is an em wave with a polarization. 
-\subsection{Light as a wave}
-Has a defined frequency and wavelength, delocalized, interference phenomenon
-\subsection{Light as a particle}
-Photoelectric effect, made of chunks called photons.
-
-\begin{tikzpicture}[x={(10:10mm)},z={(-30:10mm)},domain=0:3*pi]
-    \draw[->] (0,0) -- (3*pi,0) node[right,rotate=10] {Direction of EM field};
-    % \draw[->] (0,0) -- (0,1.2) node[right] {$y$};
-    % \draw[->] (0,0) -- (0,0,1.2) node[right] {$x$};
-    \begin{scope}[canvas is xy plane at z=0]
-    \draw[very thin,xkcdSkyBlue] (0,0) grid (3*pi,1.2);
-    \end{scope}
-    \begin{scope}[canvas is xz plane at y=0]
-    \draw[very thin,xkcdPink] (0,0) grid (3*pi,1.2);
-    \end{scope}
-    \fill[color=xkcdSkyBlue,fill opacity=0.5] plot (\x,{sin(\x r)});
-    \fill[color=xkcdPink,fill opacity=0.5] plot (\x,0,{sin(\x r)});
-\end{tikzpicture}
-
-\begin{tikzpicture}
+\end{frame}
+\section{QKD again}
+\begin{frame}
+    \frametitle{What if there is an eavesdropper?}
+    \begin{block}{No Cloning Theorem}
+        It is impossible to create an independent and identical copy of an arbitrary unknown quantum state
+    \end{block}
+\end{frame}
+\begin{frame}
+    \includegraphics[width=0.7\textwidth,angle=-90]{bb84-09}\footnote{C.H. Bennett et al, Journal of Cryptology 5, 3-28 (1992).}
+\end{frame}
+\begin{frame}
+    \begin{tikzpicture}
 \begin{axis}[
     xlabel={Photon's polarisation angle ($\theta$)},
         legend style={
@@ -273,55 +248,19 @@ Photoelectric effect, made of chunks called photons.
 \addlegendentry{Probability of absorption}
 \end{axis}
 \end{tikzpicture}
+\end{frame}
+\end{document}
+\section{References}
+\begin{frame}
+  \nocite{vpunit}
+\nocite{Burago}
+  \nocite{Fomin}
+\bibliographystyle{ieeetr}
+\bibliography{graphsApplications}
+\end{frame}
+  
 
 
-The direction of the electric field is called the light's polarization.
+  
+ 
 
-Polarizers are special sheets of material that absorb or transmit
-light depending on its polarization.
-
-Consider a single photon at a polarizer. There are only two possible things that can happen:
-A. The photon goes through;
-B. The photon is absorbed
-
-\begin{tikzpicture}
-\foreach \a [count=\i from 0] in {0, 30, 45, 60, 90} {
-\pgfmathsetmacro{\t}{cos(\a)^2};
-\node[rotate={0}] at ({\a}:5) {\t};
-    \draw[very thin] (0,0) -- (\a:4.5) node[below] {\ang{\a}}; 
-}
-\draw (0,0) circle [radius=5.5];
-\draw (0,0) circle [radius=4.5];
-\end{tikzpicture}
-
-Mutually exclusive
-
-Vertical and Horizontal are mutually exclusive
-
-vertical and diagonal (\ang{45}) polarizations are not mutually exclusive
-
-\ang{45} and -\ang{45} polarizations are mutually exclusive
-
-Any two perpendicular polarizations are mutually exclusive.
-
-\subsection{Superposition}
-A quantum object can be in a superposition of multiple states at once. For example, a +\ang{45}-polarized photon is in a superposition of horizontal and vertical polarization states.
-
-\subsection{Measurement}
-
-Superposition works as long as you don't look! The act of measuring the superposition will collapse it and change the state. For example, when we measure the +\ang{45}-polarized photon in the HV basis, it must collapse to either horizontal or vertical polarization
-
-\begin{tikzpicture}[x={(90:10mm)},y={(-120:10mm)},z={(0:10mm)},domain=0:3*pi]
-    \draw[->] (0,0,0) -- (0,0,3*pi) node[right,rotate=0] {Direction of EM field};
-    % \draw[->] (0,0) -- (0,1.2) node[right] {$y$};
-    % \draw[->] (0,0) -- (0,0,1.2) node[right] {$x$};
-    \begin{scope}[canvas is xy plane at z=0]
-    % \draw[very thin,xkcdSkyBlue] (0,0) grid (3*pi,1.2);
-    \filldraw[color=xkcdPink] (0,0) circle [radius=1cm];
-    \end{scope}
-    % \begin{scope}[canvas is xz plane at y=0]
-    % \draw[very thin,xkcdPink] (0,0) grid (3*pi,1.2);
-    % \end{scope}
-    % \fill[color=xkcdSkyBlue,fill opacity=0.5] plot (\x,{sin(\x r)});
-    % \fill[color=xkcdPink,fill opacity=0.5] plot (\x,0,{sin(\x r)});
-\end{tikzpicture}
