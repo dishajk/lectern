@@ -17,7 +17,7 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt} % Remove header rule
   \fancyhead[L]{\color{gray}\@title} % Section title on the left
-  \fancyfoot[R]{\hfill{\color{gray}https://dishajk.github.io}}
+  % \fancyfoot[R]{\hfill{\color{gray}https://dishajk.github.io}}
   \fancyhead[R]{\thepage}
   
   \newcommand{\theaffil}{} \newcommand{\affil}[1]{\gdef\theaffil{#1}}
