@@ -27,7 +27,29 @@
     \includegraphics[width=\textwidth]{platonic}
     \note{question: only five types of regular polyhedra can exist, why?}
 \end{frame}
+\begin{frame}
+    \only<2-6>{\frametitle{Creating a Triangle Unit}}
+    \only<1>{\includegraphics[width=\textwidth]{triplatonic}}
+    \only<2-6>{\includegraphics[height=0.1\textheight]{triplatonic}}
 
+    \centering
+    \begin{tikzpicture}
+        \only<3-4>{\filldraw[white,draw=black] (0,0) rectangle (4,4);}
+        \only<4>{\draw[dashed,thick] (2,0) -- (2,4);
+        \draw[dashed,thick] (0,2) -- (4,2);}
+        \only<5>{\filldraw[gray!50,draw=black] (1,0) rectangle (3,4);
+        \draw[thick] (2,0) -- (2,4);
+        \draw[dotted,thick] (1,2) -- (3,2);}
+        \only<6>{\filldraw[gray!50,draw=black] (1,1) rectangle (3,3);
+        \draw[thick] (1,2) -- (3,2);}
+    \end{tikzpicture}
+
+    \only<3>{Take a square piece of paper}
+    \only<4>{Fold the square into quarters.}
+    \only<5>{Fold two opposite edges to the middle.}
+    \only<6>{Fold top and bottom edges to the middle line.}
+    \only<7>{Unfold the paper.}
+\end{frame}
 \end{document}
 \begin{frame}
     \frametitle{Recap of Graphs} 
