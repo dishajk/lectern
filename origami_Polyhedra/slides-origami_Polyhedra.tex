@@ -1,11 +1,17 @@
 \documentclass{beamer}
 \mode<presentation>
+
+% \documentclass[handout]{beamer}
+% \mode<handout>{\setbeamercolor{background canvas}{bg=black!5}}
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
 \usetikzlibrary {calc,graphs,graphs.standard,patterns.meta}
 \usepackage{physics}
 \usepackage{graphicx}
-\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
 \definecolor{bgYellow}{HTML}{F0EBDC}
 \definecolor{myViolet}{HTML}{403340}
 
@@ -17,6 +23,11 @@
 \setbeamercolor{background canvas}{bg=bgYellow}
 \setbeamercolor{title}{fg=myViolet}
 \setbeamercolor{frametitle}{fg=myViolet}
+\addtobeamertemplate{footline}{}{%
+    \hspace{1em}
+    \textcolor{gray}{dishajk.github.io}
+    \vspace{1em}
+}
 \begin{frame}
     \titlepage
 \end{frame}
@@ -307,6 +318,7 @@
     }
 \end{tikzpicture}
 \end{frame}
+\end{document}
 \begin{frame}
     \only<2-9>{\frametitle{Pentagon Unit}
     \includegraphics[height=0.1\textheight]{dodecahedron}}
@@ -343,7 +355,6 @@
         }
     \end{tikzpicture}
 \end{frame}
-\end{document}
 
 \begin{frame}
     \frametitle{Recap of Graphs} 
